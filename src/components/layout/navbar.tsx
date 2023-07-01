@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { ModeToggle } from "./mode-toggle"
+import { ModeToggle } from "../mode-toggle"
 
 export default function Navbar() {
   const [navbar, setNavbar] = useState(false)
@@ -17,7 +17,9 @@ export default function Navbar() {
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <Link href="/" onClick={handleClick}>
-              <h2 className="text-2xl font-bold">Red Pangilinan</h2>
+              <h2 className="text-2xl font-bold hover:scale-[1.10] duration-200">
+                Red Pangilinan
+              </h2>
             </Link>
             <div className="md:hidden flex gap-1">
               <button

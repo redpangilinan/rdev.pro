@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { ModeToggle } from "../mode-toggle"
 
@@ -11,9 +11,17 @@ export default function Navbar() {
     setNavbar(false)
   }
 
+  useEffect(() => {
+    if (navbar) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = "auto"
+    }
+  }, [navbar])
+
   return (
-    <nav className="w-full dark:bg-zinc-950 mb-4 md:mb-0 select-none">
-      <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
+    <header className="w-full bg-white dark:bg-zinc-950 mb-4 md:mb-0 select-none">
+      <nav className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <Link href="/" onClick={handleClick}>
@@ -23,7 +31,7 @@ export default function Navbar() {
             </Link>
             <div className="md:hidden flex gap-1">
               <button
-                className="p-2 text-zinc-700 rounded-md outline-none focus:border-zinc-400 focus:border"
+                className="p-2 text-zinc-700 dark:text-zinc-400 rounded-md outline-none focus:border-zinc-400 focus:border"
                 onClick={() => setNavbar(!navbar)}
               >
                 {navbar ? (
@@ -62,11 +70,12 @@ export default function Navbar() {
         </div>
         <div>
           <div
-            className={`flex-1 justify-self-center border p-4 rounded-md md:block md:p-0 md:mt-0 md:border-none ${
+            className={`absolute m-auto left-0 right-0 md:static bg-white dark:bg-zinc-950 justify-self-center border p-4 rounded-md md:block md:p-0 md:mt-0 md:border-none ${
               navbar ? "block" : "hidden"
             }`}
+            style={{ width: "100%", maxWidth: "20rem" }}
           >
-            <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
+            <ul className="flex flex-col items-center space-y-4 md:flex-row md:space-y-0 md:space-x-6">
               <li className="hover:text-blue-300">
                 <Link href="/" onClick={handleClick}>
                   Home
@@ -88,7 +97,7 @@ export default function Navbar() {
         <div className="hidden md:block">
           <ModeToggle />
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   )
 }

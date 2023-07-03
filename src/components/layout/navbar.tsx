@@ -25,9 +25,9 @@ export default function Navbar() {
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <Link href="/" onClick={handleClick}>
-              <h2 className="text-2xl font-bold hover:scale-[1.10] duration-200">
+              <h1 className="text-2xl font-bold hover:scale-[1.10] duration-200">
                 Red Pangilinan
-              </h2>
+              </h1>
             </Link>
             <div className="md:hidden flex gap-1">
               <button
@@ -76,17 +76,17 @@ export default function Navbar() {
             style={{ width: "100%", maxWidth: "20rem" }}
           >
             <ul className="flex flex-col items-center space-y-4 md:flex-row md:space-y-0 md:space-x-6">
-              <li className="hover:text-blue-300">
+              <li className="hover:underline">
                 <Link href="/" onClick={handleClick}>
                   Home
                 </Link>
               </li>
-              <li className="hover:text-blue-300">
-                <Link href="/about" onClick={handleClick}>
-                  About
+              <li className="hover:underline">
+                <Link href="/dashboard" onClick={handleClick}>
+                  Dashboard
                 </Link>
               </li>
-              <li className="hover:text-blue-300">
+              <li className="hover:underline">
                 <Link href="/contact" onClick={handleClick}>
                   Contact
                 </Link>

@@ -51,7 +51,10 @@ export default function Skills() {
           </h2>
           <div className="flex flex-wrap gap-2">
             {skills.map((skill) => (
-              <Badge className="lg:text-sm" key={skill}>
+              <Badge
+                className="lg:text-sm bg-zinc-500 dark:bg-zinc-300"
+                key={skill}
+              >
                 {skill}
               </Badge>
             ))}

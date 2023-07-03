@@ -3,8 +3,8 @@ import { Button } from "../../ui/button"
 
 export default function Hero() {
   return (
-    <header>
-      <div className="md:container pt-16 pb-20 px-8 lg:p-32 flex flex-col items-center text-center">
+    <header className="md:container">
+      <div className="py-16 px-8 lg:py-32 lg:px-0 flex flex-col items-center text-center">
         <h1 className="text-5xl lg:text-6xl font-bold mb-8">
           Hi, I'm Red Pangilinan
         </h1>

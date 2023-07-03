@@ -4,7 +4,7 @@ import { Button } from "../../ui/button"
 export default function Hero() {
   return (
     <header className="md:container">
-      <div className="py-16 px-8 lg:py-32 lg:px-0 flex flex-col items-center text-center">
+      <div className="py-16 px-8 md:px-0 lg:py-32 flex flex-col items-center text-center">
         <h1 className="text-5xl lg:text-6xl font-bold mb-8">
           Hi, I'm Red Pangilinan
         </h1>

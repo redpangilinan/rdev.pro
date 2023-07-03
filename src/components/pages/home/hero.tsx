@@ -9,9 +9,9 @@ export default function Hero() {
           Hi, I'm Red Pangilinan
         </h1>
         <h2 className="text-lg md:text-3xl font-light text-zinc-500 dark:text-zinc-400 mb-8">
-          A passionate and highly motivated full stack developer, continuously
+          A passionate and highly motivated full-stack developer, continuously
           exploring and learning cutting-edge technologies, with a focus on
-          delivering performant applications.
+          delivering performant applications
         </h2>
         <SocialMediaIcons />
         <Button className="mt-8 w-[12rem]">Contact Me</Button>

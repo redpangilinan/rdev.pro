@@ -39,11 +39,11 @@ export default function Skills() {
           <p className="md:text-lg text-zinc-500 dark:text-zinc-400 mb-6">
             I build full-stack web applications with responsive user interfaces
             using modern technologies to streamline the development as well as
-            deliver robust applications that enhance user experience. I am also
-            proficient at integrating third-party services to enhance the
-            versatility of the applications I create, as well as having
+            deliver robust applications that enhance user experience. I'm also
+            proficient at integrating third-party services to improve the
+            versatility of the applications I create, along with having
             expertise in building REST APIs. With a passion for delivering
-            innovative and user-centric solutions, I am committed to providing
+            innovative and user-centric solutions, I'm committed to providing
             seamless experiences across all devices and platforms.
           </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">

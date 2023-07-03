@@ -35,7 +35,7 @@ export default function Projects() {
 
   if (isLoading || isError) {
     return (
-      <section className="py-16 lg:py-32">
+      <section className="py-16 px-8 lg:py-32">
         <h1 className="text-3xl lg:text-4xl font-bold mb-4">Projects</h1>
         <div className="flex flex-col items-end">
           <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-4">
@@ -66,7 +66,7 @@ export default function Projects() {
   }
 
   return (
-    <section className="py-16 lg:py-32">
+    <section className="py-16 px-8 lg:py-32">
       <h1 className="text-3xl lg:text-4xl font-bold mb-4">Projects</h1>
       <div className="flex flex-col items-end">
         <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-4">

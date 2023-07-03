@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <main className="container">
+      <main className="md:container">
         <Skills />
         <Projects />
       </main>

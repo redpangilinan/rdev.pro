@@ -1,11 +1,12 @@
 "use client"
 
 import { useQuery } from "@tanstack/react-query"
+import { AiOutlineStar } from "react-icons/ai"
+import { AiOutlineLink } from "react-icons/ai"
 import { getRepo } from "@/lib/api/discord"
 import { Badge } from "@/components/ui/badge"
 import { getTextColor } from "@/lib/getTextColor"
-import { AiOutlineStar } from "react-icons/ai"
-import { AiOutlineLink } from "react-icons/ai"
+import { Skeleton } from "@/components/ui/skeleton"
 import {
   Card,
   CardDescription,
@@ -32,19 +33,43 @@ export default function Projects() {
 
   const repoData = data as Repo[]
 
-  if (isLoading) {
-    return <div>Loading...</div>
-  }
-
-  if (isError) {
-    return <div>Error!</div>
+  if (isLoading || isError) {
+    return (
+      <section>
+        <h1 className="text-4xl mb-4">Projects</h1>
+        <div className="flex flex-col items-end">
+          <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
+            {Array.from({ length: 6 }).map((_, index) => (
+              <Card key={index} className="flex-grow">
+                <CardHeader>
+                  <Skeleton className="h-4 w-[50%] mb-2" />
+                  <Skeleton className="h-4 w-full" />
+                  <Skeleton className="h-4 w-[10rem]" />
+                </CardHeader>
+                <CardFooter className="flex justify-between mt-2">
+                  <Skeleton className="h-4 w-[5rem]" />
+                  <Skeleton className="h-4 w-[2rem]" />
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+          <a
+            target="_blank"
+            href="https://github.com/redpangilinan?tab=repositories"
+            className="text-sm underline"
+          >
+            See More
+          </a>
+        </div>
+      </section>
+    )
   }
 
   return (
     <section>
       <h1 className="text-4xl mb-4">Projects</h1>
       <div className="flex flex-col items-end">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
+        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
           {repoData.map((project, index) => (
             <Card key={index}>
               <CardHeader>

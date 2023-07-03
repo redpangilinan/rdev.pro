@@ -35,10 +35,10 @@ export default function Projects() {
 
   if (isLoading || isError) {
     return (
-      <section className="py-16 md:py-32">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4">Projects</h1>
+      <section className="py-16 lg:py-32">
+        <h1 className="text-3xl lg:text-4xl font-bold mb-4">Projects</h1>
         <div className="flex flex-col items-end">
-          <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-4">
             {Array.from({ length: 6 }).map((_, index) => (
               <Card key={index} className="flex-grow">
                 <CardHeader>
@@ -66,10 +66,10 @@ export default function Projects() {
   }
 
   return (
-    <section className="py-16 md:py-32">
-      <h1 className="text-3xl md:text-4xl font-bold mb-4">Projects</h1>
+    <section className="py-16 lg:py-32">
+      <h1 className="text-3xl lg:text-4xl font-bold mb-4">Projects</h1>
       <div className="flex flex-col items-end">
-        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-4">
           {repoData.map((project, index) => (
             <Card key={index}>
               <CardHeader>

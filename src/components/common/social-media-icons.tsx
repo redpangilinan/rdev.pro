@@ -10,6 +10,7 @@ export default function SocialMediaIcons() {
         target="_blank"
         href="https://github.com/redpangilinan"
         rel="noopener noreferrer"
+        aria-label="Github"
         className="text-4xl text-github dark:text-zinc-300 hover:scale-125 duration-200"
       >
         <FaGithub />
@@ -18,6 +19,7 @@ export default function SocialMediaIcons() {
         target="_blank"
         href="https://facebook.com/redpangilinan15"
         rel="noopener noreferrer"
+        aria-label="Facebook"
         className="text-4xl text-facebook hover:scale-125 duration-200"
       >
         <FaFacebook />
@@ -26,6 +28,7 @@ export default function SocialMediaIcons() {
         target="_blank"
         href="https://twitter.com/_rdev7"
         rel="noopener noreferrer"
+        aria-label="Twitter"
         className="text-4xl text-twitter hover:scale-125 duration-200"
       >
         <FaTwitter />
@@ -34,6 +37,7 @@ export default function SocialMediaIcons() {
         target="_blank"
         href="https://www.linkedin.com/in/jan-reynald-pangilinan/"
         rel="noopener noreferrer"
+        aria-label="Linkedin"
         className="text-4xl text-linkedin hover:scale-125 duration-200"
       >
         <FaLinkedin />

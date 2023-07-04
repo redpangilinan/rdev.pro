@@ -6,9 +6,9 @@ export default function Footer() {
       <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <div className="sm:flex sm:items-center sm:justify-between">
           <Link href="/">
-            <h1 className="text-2xl font-bold">Red Pangilinan</h1>
+            <h1 className="text-2xl font-bold mb-2 sm:mb-0">Red Pangilinan</h1>
           </Link>
-          <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-zinc-500 dark:text-zinc-400 sm:mb-0">
+          <ul className="flex flex-wrap items-center mb-6 text-zinc-500 dark:text-zinc-400 sm:mb-0">
             <li>
               <Link href="/" className="mr-4 hover:underline md:mr-6 ">
                 Home

@@ -32,6 +32,7 @@ export default function Navbar() {
             <div className="md:hidden flex gap-1">
               <button
                 className="p-2 text-zinc-700 dark:text-zinc-400 rounded-md outline-none focus:border-zinc-400 focus:border"
+                aria-label="Hamburger Menu"
                 onClick={() => setNavbar(!navbar)}
               >
                 {navbar ? (
@@ -75,7 +76,7 @@ export default function Navbar() {
             }`}
             style={{ width: "100%", maxWidth: "20rem" }}
           >
-            <ul className="flex flex-col items-center space-y-4 md:flex-row md:space-y-0 md:space-x-6">
+            <ul className="flex flex-col items-center space-y-4 text-zinc-500 dark:text-zinc-400 md:flex-row md:space-y-0 md:space-x-6">
               <li className="hover:underline">
                 <Link href="/" onClick={handleClick}>
                   Home

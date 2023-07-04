@@ -78,6 +78,7 @@ export default function Projects() {
                     target="_blank"
                     href={project.link}
                     rel="noopener noreferrer"
+                    aria-label={project.description}
                   >
                     <CardTitle className="text-lg hover:underline">
                       {project.repo}
@@ -87,6 +88,7 @@ export default function Projects() {
                     target="_blank"
                     href={project.website || project.link}
                     rel="noopener noreferrer"
+                    aria-label="Visit the project's live url/repo"
                   >
                     <AiOutlineLink />
                   </a>
@@ -115,7 +117,7 @@ export default function Projects() {
           href="https://github.com/redpangilinan?tab=repositories"
           className="text-sm underline"
         >
-          See More
+          See More...
         </a>
       </div>
     </section>

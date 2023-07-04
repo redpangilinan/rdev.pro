@@ -78,7 +78,7 @@ export default function Contact() {
                   <Textarea placeholder="Enter your message" {...field} />
                 </FormControl>
                 <FormDescription>
-                  Your message will be sent directly to me.
+                  Your message will be sent directly to me
                 </FormDescription>
                 <FormMessage />
               </FormItem>

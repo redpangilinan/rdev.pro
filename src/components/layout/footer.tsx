@@ -2,8 +2,8 @@ import Link from "next/link"
 
 export default function Footer() {
   return (
-    <footer className="border-t border-zinc-200 dark:border-zinc-800 mt-4">
-      <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+    <footer className="border-t border-zinc-200 dark:border-zinc-800 mt-auto">
+      <div className="w-full max-w-screen-xl mx-auto p-6 md:py-8">
         <div className="sm:flex sm:items-center sm:justify-between">
           <Link href="/">
             <h1 className="text-2xl font-bold mb-2 sm:mb-0">Red Pangilinan</h1>

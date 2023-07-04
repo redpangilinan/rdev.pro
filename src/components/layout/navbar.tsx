@@ -20,8 +20,8 @@ export default function Navbar() {
   }, [navbar])
 
   return (
-    <header className="w-full bg-white dark:bg-zinc-950 mb-4 md:mb-0 select-none">
-      <nav className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
+    <nav className="bg-white dark:bg-zinc-950 select-none">
+      <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <Link href="/" onClick={handleClick}>
@@ -98,7 +98,7 @@ export default function Navbar() {
         <div className="hidden md:block">
           <ModeToggle />
         </div>
-      </nav>
-    </header>
+      </div>
+    </nav>
   )
 }

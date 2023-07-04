@@ -28,9 +28,9 @@ export default function Skills() {
     <section className="py-16 px-8 lg:p-32 bg-zinc-50 dark:bg-zinc-900 md:rounded-lg">
       <div className="flex flex-col lg:flex-row-reverse gap-16">
         <img
+          className="hidden lg:block select-none"
           src="/pc-logo.svg"
           alt="PC Logo"
-          className="hidden lg:block"
           width={400}
           height={400}
         />

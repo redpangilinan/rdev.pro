@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} text-zinc-950 bg-white dark:text-zinc-50 dark:bg-zinc-950`}
+        className={`${inter.className} flex flex-col min-h-screen text-zinc-950 bg-white dark:text-zinc-50 dark:bg-zinc-950`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <QueryProvider>

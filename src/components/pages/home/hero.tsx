@@ -1,3 +1,4 @@
+import Link from "next/link"
 import SocialMediaIcons from "../../common/social-media-icons"
 import { Button } from "../../ui/button"
 
@@ -14,7 +15,9 @@ export default function Hero() {
           delivering performant applications
         </h2>
         <SocialMediaIcons />
-        <Button className="mt-8 w-[12rem]">Contact Me</Button>
+        <Link href="/contact">
+          <Button className="mt-8 w-[12rem]">Contact Me</Button>
+        </Link>
       </div>
     </header>
   )

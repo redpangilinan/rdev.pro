@@ -5,7 +5,7 @@ import { AiOutlineStar } from "react-icons/ai"
 import { AiOutlineLink } from "react-icons/ai"
 import { getRepo } from "@/lib/api/discord"
 import { Badge } from "@/components/ui/badge"
-import { getTextColor } from "@/lib/getTextColor"
+import { getTextColor } from "@/lib/get-text-color"
 import { Skeleton } from "@/components/ui/skeleton"
 import {
   Card,

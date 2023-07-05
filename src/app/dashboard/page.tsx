@@ -1,3 +1,7 @@
+export const metadata = {
+  title: "Dashboard",
+}
+
 export default function Dashboard() {
   return (
     <main className="container flex justify-center p-16">

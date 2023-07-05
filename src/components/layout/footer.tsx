@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { siteConfig } from "../../../config/site"
 
 export default function Footer() {
   return (
@@ -31,7 +32,7 @@ export default function Footer() {
           © {new Date().getFullYear()}{" "}
           <a
             target="_blank"
-            href="https://github.com/redpangilinan"
+            href={siteConfig.links.github}
             className="hover:underline"
           >
             Red Pangilinan

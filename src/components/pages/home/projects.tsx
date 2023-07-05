@@ -1,5 +1,6 @@
 "use client"
 
+import { siteConfig } from "../../../../config/site"
 import { useQuery } from "@tanstack/react-query"
 import { AiOutlineStar } from "react-icons/ai"
 import { AiOutlineLink } from "react-icons/ai"
@@ -14,16 +15,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-
-type Repo = {
-  repo: string
-  description: string
-  language: string
-  languageColor: string
-  stars: number
-  link: string
-  website: string
-}
 
 export default function Projects() {
   const { data, isLoading, isError } = useQuery({
@@ -114,7 +105,7 @@ export default function Projects() {
         </div>
         <a
           target="_blank"
-          href="https://github.com/redpangilinan?tab=repositories"
+          href={`${siteConfig.links.github}?tab=repositories`}
           className="text-sm underline"
         >
           See More...

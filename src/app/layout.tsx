@@ -1,4 +1,5 @@
 import "./globals.css"
+import { siteConfig } from "../../config/site"
 import { Inter } from "next/font/google"
 import Navbar from "../components/layout/navbar"
 import Footer from "../components/layout/footer"
@@ -8,18 +9,56 @@ import QueryProvider from "./provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "Red Pangilinan",
-  description: "My personal portfolio website built in Nextjs.",
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  keywords: [
+    "Next.js",
+    "React",
+    "Tailwind CSS",
+    "Radix UI",
+    "shadcn/ui",
+    "React Query",
+    "Portfolio",
+  ],
+  authors: [
+    {
+      name: siteConfig.author,
+      url: siteConfig.url,
+    },
+  ],
+  creator: siteConfig.author,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [`${siteConfig.url}/og.jpg`],
+    creator: "@_rdev7",
+  },
   icons: {
-    icon: "./favicon.ico",
+    icon: "/favicon.ico",
   },
 }
 
-export default function RootLayout({
-  children,
-}: {
+interface RootLayoutProps {
   children: React.ReactNode
-}) {
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body

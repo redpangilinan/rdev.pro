@@ -62,7 +62,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body
-        className={`${inter.className} flex flex-col min-h-screen text-zinc-800 bg-white dark:text-zinc-200 dark:bg-zinc-950`}
+        className={`${inter.className} flex flex-col min-h-screen bg-background text-zinc-800 dark:text-zinc-200`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <QueryProvider>

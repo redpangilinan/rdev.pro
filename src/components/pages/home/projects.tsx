@@ -29,7 +29,7 @@ export default function Projects() {
     return (
       <section className="py-16 px-8 md:px-0 lg:py-32 space-y-4">
         <HeadingText>Projects</HeadingText>
-        <div className="flex flex-col items-end space-y-4">
+        <div className="flex flex-col items-end gap-4">
           <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {Array.from({ length: 6 }).map((_, index) => (
               <Card key={index} className="flex-grow">
@@ -60,7 +60,7 @@ export default function Projects() {
   return (
     <section className="py-16 px-8 md:px-0 lg:py-32 space-y-4">
       <HeadingText>Projects</HeadingText>
-      <div className="flex flex-col items-end space-y-4">
+      <div className="flex flex-col items-end gap-4">
         <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
           {repoData.map((project, index) => (
             <Card key={index}>

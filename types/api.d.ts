@@ -9,3 +9,14 @@ type Repo = {
   link: string
   website: string
 }
+
+type Languages = {
+  name: string
+  total_seconds: number
+  percent: number
+  digital: string
+  decimal: string
+  text: string
+  hours: number
+  minutes: number
+}

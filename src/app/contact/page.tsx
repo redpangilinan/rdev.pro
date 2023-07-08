@@ -1,5 +1,6 @@
 import ContactForm from "@/components/pages/contact-form"
 import SocialMediaIcons from "@/components/common/social-media-icons"
+import HeadingText from "@/components/common/heading-text"
 
 export const metadata = {
   title: "Contact",
@@ -8,11 +9,10 @@ export const metadata = {
 export default function Contact() {
   return (
     <main className="container py-4 sm:py-8 flex flex-col items-center">
-      <div className="flex flex-col items-center text-center">
-        <h1 className="text-3xl lg:text-4xl font-bold mb-2">Contact</h1>
-        <h2 className="lg:text-lg mb-2 font-light text-zinc-500 dark:text-zinc-400">
-          Message me via social media or through email
-        </h2>
+      <div className="flex flex-col items-center text-center space-y-2">
+        <HeadingText subtext="Message me via social media or through email">
+          Contact
+        </HeadingText>
         <SocialMediaIcons />
       </div>
       <ContactForm />

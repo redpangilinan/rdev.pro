@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge"
+import HeadingText from "@/components/common/heading-text"
 
 export default function Skills() {
   const skills = [
@@ -35,7 +36,7 @@ export default function Skills() {
           height={400}
         />
         <div>
-          <h1 className="text-3xl lg:text-4xl font-bold mb-4">What I do</h1>
+          <HeadingText className="mb-4">What I do</HeadingText>
           <p className="lg:text-lg text-zinc-500 dark:text-zinc-400 mb-6">
             I build full-stack web applications with responsive user interfaces
             using modern technologies to streamline the development as well as
@@ -46,9 +47,7 @@ export default function Skills() {
             innovative and user-centric solutions, I'm committed to providing
             seamless experiences across all devices and platforms.
           </p>
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-            Technologies I work with
-          </h2>
+          <HeadingText className="mb-4">Technologies I work with</HeadingText>
           <div className="flex flex-wrap gap-2">
             {skills.map((skill) => (
               <Badge

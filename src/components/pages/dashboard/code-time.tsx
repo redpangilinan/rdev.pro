@@ -22,7 +22,7 @@ export default async function CodeTime() {
   return (
     <Card className="flex-grow h-full">
       <CardHeader>
-        <CardTitle>My Coding Time</CardTitle>
+        <CardTitle>My Coding Hours</CardTitle>
         <CardDescription>{started}</CardDescription>
       </CardHeader>
       <CardContent className="text-xl font-medium">{totalTime}</CardContent>

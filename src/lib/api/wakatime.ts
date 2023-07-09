@@ -2,7 +2,7 @@ import { env } from "../utils"
 import wretch from "wretch"
 
 // Instantiate and configure wretch
-const api = wretch("https://wakatime.com", { mode: "cors" })
+const api = wretch("https://wakatime.com")
   .errorType("json")
   .resolve((r) => r.json())
 

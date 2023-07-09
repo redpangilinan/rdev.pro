@@ -20,12 +20,12 @@ export default function Navbar() {
   }, [navbar])
 
   return (
-    <nav className="bg-white dark:bg-zinc-950 select-none">
+    <nav className="bg-background select-none">
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <Link href="/" onClick={handleClick}>
-              <h1 className="text-2xl font-bold hover:scale-[1.10] duration-200">
+              <h1 className="text-2xl font-bold lg:hover:scale-[1.10] duration-200">
                 Red Pangilinan
               </h1>
             </Link>
@@ -71,7 +71,7 @@ export default function Navbar() {
         </div>
         <div>
           <div
-            className={`absolute m-auto left-0 right-0 md:static bg-white dark:bg-zinc-950 justify-self-center border p-4 rounded-md md:block md:p-0 md:mt-0 md:border-none ${
+            className={`absolute m-auto left-0 right-0 md:static bg-background justify-self-center border p-4 rounded-md md:block md:p-0 md:mt-0 md:border-none ${
               navbar ? "block" : "hidden"
             }`}
             style={{ width: "100%", maxWidth: "20rem" }}

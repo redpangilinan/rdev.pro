@@ -1,3 +1,5 @@
+import { Suspense } from "react"
+import DashboardSkeleton from "@/components/loaders/dashboard-skeleton"
 import Languages from "@/components/pages/dashboard/languages"
 import CodeTime from "@/components/pages/dashboard/code-time"
 import HeadingText from "@/components/common/heading-text"
@@ -14,8 +16,10 @@ export default function Dashboard() {
           Dashboard
         </HeadingText>
         <div className="flex flex-wrap gap-2">
-          <CodeTime />
-          <Languages />
+          <Suspense fallback={<DashboardSkeleton />}>
+            <CodeTime />
+            <Languages />
+          </Suspense>
         </div>
       </div>
     </main>

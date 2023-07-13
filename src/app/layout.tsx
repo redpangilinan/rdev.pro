@@ -4,7 +4,6 @@ import { Inter } from "next/font/google"
 import Navbar from "../components/layout/navbar"
 import Footer from "../components/layout/footer"
 import { ThemeProvider } from "@/components/theme-provider"
-import QueryProvider from "./provider"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -65,11 +64,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
         className={`${inter.className} flex flex-col min-h-screen bg-background text-zinc-800 dark:text-zinc-200`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <QueryProvider>
-            <Navbar />
-            {children}
-            <Footer />
-          </QueryProvider>
+          <Navbar />
+          {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

@@ -1,11 +1,12 @@
 import { SiteConfig } from "../types"
+import { env } from "../env.mjs"
 
 export const siteConfig: SiteConfig = {
   name: "Red Pangilinan",
   author: "redpangilinan",
   description: "My personal portfolio website built in Nextjs.",
-  url: "https://redpangilinan.live",
-  ogImage: "https://redpangilinan.live/og.jpg",
+  url: env.NEXT_PUBLIC_APP_URL,
+  ogImage: `${env.NEXT_PUBLIC_APP_URL}/og.jpg`,
   links: {
     github: "https://github.com/redpangilinan",
     facebook: "https://facebook.com/redpangilinan15",

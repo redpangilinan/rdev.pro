@@ -7,8 +7,8 @@ const api = wretch("https://wakatime.com")
   .resolve((r) => r.json())
 
 // Fetch stats from wakatime
-export const getCodingStats = () => {
-  return api
+export const getCodingStats = async () => {
+  return await api
     .headers({
       Authorization: `Basic ${Buffer.from(env.WAKATIME_API_KEY).toString(
         "base64"

@@ -6,6 +6,6 @@ const api = wretch("https://gh-pinned-repos.egoist.dev", { mode: "cors" })
   .resolve((r) => r.json())
 
 // Fetch my pinned repository
-export const getRepo = () => {
-  return api.get("/?username=redpangilinan")
+export const getRepo = async () => {
+  return await api.get("/?username=redpangilinan")
 }

@@ -6,8 +6,6 @@ import Skills from "@/components/pages/home/skills"
 import HeadingText from "@/components/common/heading-text"
 import ProjectsSkeleton from "@/components/loaders/projects-skeleton"
 
-export const runtime = "edge"
-
 export default function Home() {
   return (
     <>

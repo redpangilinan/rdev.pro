@@ -10,14 +10,14 @@ import {
 interface ResponseData {
   data: {
     human_readable_range: string
-    human_readable_total: string
+    human_readable_total_including_other_language: string
   }
 }
 
 export default async function CodeTime() {
   const data = (await getCodingStats()) as ResponseData
   const started = data.data.human_readable_range
-  const totalTime = data.data.human_readable_total
+  const totalTime = data.data.human_readable_total_including_other_language
 
   return (
     <Card className="flex-grow h-full">

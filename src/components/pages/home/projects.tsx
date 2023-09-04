@@ -1,5 +1,5 @@
-import { AiOutlineStar } from "react-icons/ai"
-import { AiOutlineLink } from "react-icons/ai"
+import { Star } from "lucide-react"
+import { ExternalLink } from "lucide-react"
 import { getRepo } from "@/lib/api/github"
 import { Badge } from "@/components/ui/badge"
 import { getTextColor } from "@/lib/get-text-color"
@@ -36,7 +36,7 @@ export default async function Projects() {
                 rel="noopener noreferrer"
                 aria-label="Visit the project's live url/repo"
               >
-                <AiOutlineLink />
+                <ExternalLink className="h-4 w-4 text-muted-foreground" />
               </a>
             </div>
             <CardDescription>{project.description}</CardDescription>
@@ -50,8 +50,8 @@ export default async function Projects() {
             >
               {project.language}
             </Badge>
-            <CardDescription className="flex gap-1">
-              <AiOutlineStar className="text-lg" />
+            <CardDescription className="flex gap-1 items-center">
+              <Star className="h-4 w-4" />
               {project.stars}
             </CardDescription>
           </CardFooter>

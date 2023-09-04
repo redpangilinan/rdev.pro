@@ -17,7 +17,7 @@ export default async function Projects() {
   return (
     <>
       {data.map((project, index) => (
-        <Card key={index}>
+        <Card key={index} className="flex flex-col justify-between">
           <CardHeader>
             <div className="flex justify-between">
               <a

@@ -38,6 +38,6 @@
     "tailwindcss-animate": "^1.0.6",
     "typescript": "5.1.6",
     "wretch": "^2.6.0",
-    "zod": "^3.21.4"
+    "zod": "^3.22.3"
   }
 }

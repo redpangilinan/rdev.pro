@@ -1,28 +1,39 @@
 import { Skeleton } from "@/components/ui/skeleton"
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
-export default function DashboardSkeleton() {
+export function DashboardSkeleton() {
   return (
     <>
-      <Card className="flex-grow h-full">
-        <CardHeader>
-          <Skeleton className="h-8 w-[12.5rem]" />
-          <Skeleton className="h-4 w-[8rem]" />
-        </CardHeader>
-        <CardContent className="text-xl font-medium">
-          <Skeleton className="h-4 w-[11rem]" />
-        </CardContent>
-      </Card>
+      <div className="grid w-full grid-cols-1 gap-2 md:grid-cols-2">
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <Skeleton className="h-4 w-[8rem]" />
+          </CardHeader>
+          <CardContent className="space-y-2">
+            <Skeleton className="h-8 w-[12.5rem]" />
+            <Skeleton className="h-4 w-[8rem]" />
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <Skeleton className="h-4 w-[8rem]" />
+          </CardHeader>
+          <CardContent className="space-y-2">
+            <Skeleton className="h-8 w-[12.5rem]" />
+            <Skeleton className="h-4 w-[8rem]" />
+          </CardContent>
+        </Card>
+      </div>
       <Card className="flex-grow">
         <CardHeader>
-          <Skeleton className="h-8 w-[16rem]" />
+          <CardTitle className="text-lg">Top Languages</CardTitle>
         </CardHeader>
-        <CardContent className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-2">
-          {Array.from({ length: 10 }).map((_, index) => (
-            <Card className="p-4 space-y-4" key={index}>
-              <Skeleton className="h-4 w-[9.6rem]" />
-              <Skeleton className="h-4 w-[9.6rem]" />
-            </Card>
+        <CardContent className="grid grid-cols-2 md:grid-cols-4">
+          {Array.from({ length: 16 }).map((_, index) => (
+            <div className="space-y-2 p-3" key={index}>
+              <Skeleton className="h-4 w-[6rem]" />
+              <Skeleton className="h-4 w-[5rem]" />
+            </div>
           ))}
         </CardContent>
       </Card>

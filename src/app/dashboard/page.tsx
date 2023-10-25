@@ -1,6 +1,6 @@
 import { Suspense } from "react"
 import { getCodingStats } from "@/lib/api/wakatime"
-import DashboardSkeleton from "@/components/loaders/dashboard-skeleton"
+import { DashboardSkeleton } from "@/components/loaders/dashboard-skeleton"
 import Languages from "@/components/pages/dashboard/languages"
 import CodeTime from "@/components/pages/dashboard/code-time"
 import HeadingText from "@/components/common/heading-text"

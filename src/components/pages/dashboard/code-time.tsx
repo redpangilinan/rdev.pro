@@ -1,31 +1,38 @@
-import { getCodingStats } from "@/lib/api/wakatime"
-import {
-  Card,
-  CardDescription,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
-interface ResponseData {
-  data: {
-    human_readable_range: string
-    human_readable_total_including_other_language: string
-  }
+interface CodeTimeProps {
+  started: string
+  totalTime: string
+  languages: Languages[]
 }
 
-export default async function CodeTime() {
-  const data = (await getCodingStats()) as ResponseData
-  const started = data.data.human_readable_range
-  const totalTime = data.data.human_readable_total_including_other_language
-
+export default async function CodeTime({
+  started,
+  totalTime,
+  languages,
+}: CodeTimeProps) {
   return (
-    <Card className="flex-grow h-full">
-      <CardHeader>
-        <CardTitle>My Coding Hours</CardTitle>
-        <CardDescription>{started}</CardDescription>
-      </CardHeader>
-      <CardContent className="text-xl font-medium">{totalTime}</CardContent>
-    </Card>
+    <div className="grid w-full grid-cols-1 gap-2 md:grid-cols-2">
+      <Card>
+        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <CardTitle className="text-sm font-medium">Coding hours</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="text-2xl font-bold">{totalTime}</div>
+          <p className="text-xs text-muted-foreground">{started}</p>
+        </CardContent>
+      </Card>
+      <Card>
+        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <CardTitle className="text-sm font-medium">
+            Most used language
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="text-2xl font-bold">{languages[0].name}</div>
+          <p className="text-xs text-muted-foreground">{languages[0].text}</p>
+        </CardContent>
+      </Card>
+    </div>
   )
 }

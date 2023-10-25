@@ -26,7 +26,7 @@ export default async function Projects() {
                 rel="noopener noreferrer"
                 aria-label={project.description}
               >
-                <CardTitle className="text-lg hover:underline">
+                <CardTitle className="text-base hover:underline">
                   {project.repo}
                 </CardTitle>
               </a>
@@ -39,7 +39,9 @@ export default async function Projects() {
                 <ExternalLink className="h-4 w-4 text-muted-foreground" />
               </a>
             </div>
-            <CardDescription>{project.description}</CardDescription>
+            <CardDescription className="line-clamp-2 text-sm font-light">
+              {project.description}
+            </CardDescription>
           </CardHeader>
           <CardFooter className="flex justify-between">
             <Badge
@@ -50,7 +52,7 @@ export default async function Projects() {
             >
               {project.language}
             </Badge>
-            <CardDescription className="flex gap-1 items-center">
+            <CardDescription className="flex items-center gap-1">
               <Star className="h-4 w-4" />
               {project.stars}
             </CardDescription>

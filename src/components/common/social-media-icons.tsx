@@ -1,15 +1,15 @@
 import { FaGithub, FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa"
 import { siteConfig } from "@/../config/site"
 
-export default function SocialMediaIcons() {
+export function SocialMediaIcons() {
   return (
-    <div className="flex gap-3">
+    <div className="flex gap-2">
       <a
         target="_blank"
         href={siteConfig.links.github}
         rel="noopener noreferrer"
         aria-label="Github"
-        className="text-4xl text-github dark:text-zinc-300 lg:hover:scale-125 duration-200"
+        className="rounded p-2 text-xl hover:bg-accent hover:text-accent-foreground"
       >
         <FaGithub />
       </a>
@@ -18,7 +18,7 @@ export default function SocialMediaIcons() {
         href={siteConfig.links.facebook}
         rel="noopener noreferrer"
         aria-label="Facebook"
-        className="text-4xl text-facebook lg:hover:scale-125 duration-200"
+        className="rounded p-2 text-xl hover:bg-accent hover:text-accent-foreground"
       >
         <FaFacebook />
       </a>
@@ -27,7 +27,7 @@ export default function SocialMediaIcons() {
         href={siteConfig.links.twitter}
         rel="noopener noreferrer"
         aria-label="Twitter"
-        className="text-4xl text-twitter lg:hover:scale-125 duration-200"
+        className="rounded p-2 text-xl hover:bg-accent hover:text-accent-foreground"
       >
         <FaTwitter />
       </a>
@@ -36,7 +36,7 @@ export default function SocialMediaIcons() {
         href={siteConfig.links.linkedin}
         rel="noopener noreferrer"
         aria-label="Linkedin"
-        className="text-4xl text-linkedin lg:hover:scale-125 duration-200"
+        className="rounded p-2 text-xl hover:bg-accent hover:text-accent-foreground"
       >
         <FaLinkedin />
       </a>

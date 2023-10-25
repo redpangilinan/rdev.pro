@@ -1,35 +1,46 @@
 import { Suspense } from "react"
 import { siteConfig } from "@/../config/site"
-import Hero from "@/components/pages/home/hero"
+
 import Projects from "@/components/pages/home/projects"
-import Skills from "@/components/pages/home/skills"
 import HeadingText from "@/components/common/heading-text"
 import ProjectsSkeleton from "@/components/loaders/projects-skeleton"
+import { SocialMediaIcons } from "@/components/common/social-media-icons"
 
 export default function Home() {
   return (
-    <>
-      <Hero />
-      <main className="md:container">
-        <Skills />
-        <section className="py-16 px-8 md:px-0 lg:py-32 space-y-4">
-          <HeadingText>Projects</HeadingText>
-          <div className="flex flex-col items-end gap-4">
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-              <Suspense fallback={<ProjectsSkeleton />}>
-                <Projects />
-              </Suspense>
-            </div>
-            <a
-              target="_blank"
-              href={`${siteConfig.links.github}?tab=repositories`}
-              className="text-sm underline"
-            >
-              See More...
-            </a>
+    <main className="py-4">
+      <section className="space-y-4 py-4">
+        <p className="font-light text-muted-foreground">Welcome to /rdev!</p>
+        <p className="font-light">
+          I'm a motivated full-stack developer, continuously exploring and
+          learning cutting-edge technologies, with a focus on delivering
+          performant applications.
+        </p>
+        <p className="font-light">
+          My main tech stack for building apps is{" "}
+          <span className="font-semibold">Next.js</span>,{" "}
+          <span className="font-semibold">React</span>, and{" "}
+          <span className="font-semibold">TypeScript</span>.
+        </p>
+        <SocialMediaIcons />
+      </section>
+      <section className="space-y-4 py-4">
+        <HeadingText>Projects</HeadingText>
+        <div className="flex flex-col items-end gap-4">
+          <div className="grid w-full grid-cols-1 gap-3 md:grid-cols-2">
+            <Suspense fallback={<ProjectsSkeleton />}>
+              <Projects />
+            </Suspense>
           </div>
-        </section>
-      </main>
-    </>
+          <a
+            target="_blank"
+            href={`${siteConfig.links.github}?tab=repositories`}
+            className="text-sm underline"
+          >
+            See More...
+          </a>
+        </div>
+      </section>
+    </main>
   )
 }

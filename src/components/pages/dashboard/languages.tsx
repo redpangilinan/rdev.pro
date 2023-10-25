@@ -1,4 +1,3 @@
-import { getCodingStats } from "@/lib/api/wakatime"
 import {
   Card,
   CardDescription,
@@ -6,30 +5,36 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 
-interface ResponseData {
-  data: {
-    languages: Languages[]
-  }
+interface LanguagesProps {
+  languages: Languages[]
 }
 
-export default async function Languages() {
-  const data = (await getCodingStats()) as ResponseData
-  const languages: Languages[] = data.data.languages
-
+export default async function Languages({ languages }: LanguagesProps) {
   return (
     <Card className="flex-grow">
       <CardHeader>
-        <CardTitle>Most Used Languages</CardTitle>
+        <CardTitle className="text-lg">Top Languages</CardTitle>
       </CardHeader>
-      <CardContent className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-2">
-        {languages.slice(0, 10).map((language) => (
-          <Card className="p-4 space-y-2" key={language.name}>
-            <div>
-              {language.name} ({language.percent}%)
-            </div>
-            <CardDescription>{language.text}</CardDescription>
-          </Card>
+      <CardContent className="grid grid-cols-2 md:grid-cols-4">
+        {languages.slice(0, 16).map((language) => (
+          <div className="p-3" key={language.name}>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger>{language.name}</TooltipTrigger>
+                <CardDescription>{language.text}</CardDescription>
+                <TooltipContent>
+                  <p>{language.percent}%</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          </div>
         ))}
       </CardContent>
     </Card>

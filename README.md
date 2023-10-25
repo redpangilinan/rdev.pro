@@ -1,5 +1,6 @@
-# Next Portfolio
-This is my personal portfolio website built with [Next.js](https://nextjs.org/).
+# rdev.pro
+
+This is my personal website built with [Next.js](https://nextjs.org/).
 
 ## Local Installation
 
@@ -10,12 +11,15 @@ npm i
 # or
 pnpm i
 ```
+
 Then, run development server:
+
 ```bash
 npm run dev
 # or
 pnpm run dev
 ```
+
 Finally, create a local env file:
 
 ```bash
@@ -28,5 +32,3 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to view th
 ## License
 
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT) - see the [LICENSE](LICENSE) file for details.
-
-

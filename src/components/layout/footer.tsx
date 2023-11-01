@@ -1,4 +1,3 @@
-import Link from "next/link"
 import { siteConfig } from "@/../config/site"
 
 export default function Footer() {

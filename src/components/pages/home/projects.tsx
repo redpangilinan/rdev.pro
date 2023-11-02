@@ -24,7 +24,7 @@ export default async function Projects() {
                 target="_blank"
                 href={project.link}
                 rel="noopener noreferrer"
-                aria-label={project.description}
+                aria-label={project.repo}
               >
                 <CardTitle className="text-base hover:underline">
                   {project.repo}

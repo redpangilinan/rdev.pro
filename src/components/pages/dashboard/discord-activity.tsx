@@ -59,8 +59,10 @@ export async function DiscordActivity() {
                 </TooltipProvider>
                 <div>
                   <AlertTitle>{activity.name}</AlertTitle>
-                  <AlertDescription>{activity.details}</AlertDescription>
-                  <AlertDescription>{activity.state}</AlertDescription>
+                  <AlertDescription>
+                    {activity.details || null}
+                  </AlertDescription>
+                  <AlertDescription>{activity.state || null}</AlertDescription>
                   <AlertDescription>
                     {discordTimestamp(activity.timestamps.start)}
                   </AlertDescription>

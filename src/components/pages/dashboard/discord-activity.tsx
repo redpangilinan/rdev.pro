@@ -25,7 +25,7 @@ export async function DiscordActivity() {
         <DiscordStatus data={data.data} />
         <div className="flex flex-grow flex-col gap-2">
           {data.data.activities.length === 0 ? (
-            <Alert>
+            <Alert className="bg-muted">
               <AlertDescription>No activities currently.</AlertDescription>
             </Alert>
           ) : (

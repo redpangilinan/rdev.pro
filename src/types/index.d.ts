@@ -49,17 +49,17 @@ type Status = string | "online" | "offline" | "idle" | "dnd"
 
 type Activity = {
   name: string
-  state: string
-  details: string
+  state?: string
+  details?: string
   application_id: string
   timestamps: {
     start: number
   }
-  assets: {
-    large_image: string
-    large_text: string
-    small_image: string
-    small_text: string
+  assets?: {
+    large_image?: string
+    large_text?: string
+    small_image?: string
+    small_text?: string
   }
 }
 

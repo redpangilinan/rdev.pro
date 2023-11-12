@@ -12,6 +12,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { DiscordStatus } from "@/components/common/discord-status"
+import { BsDiscord } from "react-icons/bs"
 
 export async function DiscordActivity() {
   const data = (await getDiscordActivity()) as DiscordApiResponse
@@ -34,7 +35,9 @@ export async function DiscordActivity() {
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger>
-                      {activity.assets.large_image.startsWith("spotify:") ? (
+                      {activity.assets &&
+                      activity.assets.large_image &&
+                      activity.assets.large_image.startsWith("spotify:") ? (
                         <img
                           src={data.data.spotify.album_art_url}
                           width={90}
@@ -42,7 +45,7 @@ export async function DiscordActivity() {
                           alt="Activity image"
                           className="rounded"
                         />
-                      ) : (
+                      ) : activity.assets ? (
                         <img
                           src={`https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets.large_image}`}
                           width={90}
@@ -50,10 +53,23 @@ export async function DiscordActivity() {
                           alt="Activity image"
                           className="rounded"
                         />
+                      ) : (
+                        <div
+                          className="flex items-center justify-center"
+                          style={{
+                            width: 90,
+                            height: 90,
+                            backgroundColor: "gray",
+                            borderRadius: "0.25rem",
+                          }}
+                        >
+                          <BsDiscord className="h-12 w-12" />
+                        </div>
                       )}
                     </TooltipTrigger>
                     <TooltipContent>
-                      {activity.assets.large_text}
+                      {activity.assets &&
+                        (activity.assets.large_text || activity.name)}
                     </TooltipContent>
                   </Tooltip>
                 </TooltipProvider>

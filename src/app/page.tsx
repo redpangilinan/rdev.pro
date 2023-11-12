@@ -1,8 +1,8 @@
 import { Suspense } from "react"
 import { siteConfig } from "@/../config/site"
 
-import Projects from "@/components/pages/home/projects"
-import HeadingText from "@/components/common/heading-text"
+import { Projects } from "@/components/pages/home/projects"
+import { HeadingText } from "@/components/common/heading-text"
 import { ProjectsSkeleton } from "@/components/loaders/projects-skeleton"
 import { SocialMediaIcons } from "@/components/common/social-media-icons"
 

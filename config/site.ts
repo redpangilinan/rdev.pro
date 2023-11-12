@@ -1,4 +1,4 @@
-import { SiteConfig } from "../types"
+import { SiteConfig } from "../src/types"
 import { env } from "../env.mjs"
 
 export const siteConfig: SiteConfig = {

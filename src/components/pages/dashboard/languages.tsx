@@ -2,12 +2,13 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ResponsiveContainer, PieChart, Pie, Cell, Tooltip } from "recharts"
+import { Languages } from "@/types"
 
 interface LanguagesProps {
   languages: Languages[]
 }
 
-export default function Languages({ languages }: LanguagesProps) {
+export function Languages({ languages }: LanguagesProps) {
   const data = languages.slice(0, 10)
 
   const colorMapping: Record<string, string> = {

@@ -1,8 +1,11 @@
 import { Star } from "lucide-react"
 import { ExternalLink } from "lucide-react"
+
 import { getRepo } from "@/lib/api/github"
-import { Badge } from "@/components/ui/badge"
 import { getTextColor } from "@/lib/get-text-color"
+import { Repo } from "@/types"
+
+import { Badge } from "@/components/ui/badge"
 import {
   Card,
   CardDescription,
@@ -11,7 +14,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 
-export default async function Projects() {
+export async function Projects() {
   const data = (await getRepo()) as Repo[]
 
   return (

@@ -4,10 +4,24 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 export function DashboardSkeleton() {
   return (
     <>
+      <Card className="w-full">
+        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <CardTitle className="text-sm font-medium">
+            Discord activity
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="flex flex-col gap-2">
+          <div className="flex gap-2">
+            <Skeleton className="h-10 w-10 rounded-full" />
+            <Skeleton className="h-10 w-[14rem]" />
+          </div>
+          <Skeleton className="h-8 w-full" />
+        </CardContent>
+      </Card>
       <div className="grid w-full grid-cols-1 gap-2 md:grid-cols-2">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <Skeleton className="h-4 w-[8rem]" />
+            <CardTitle className="text-sm font-medium">Coding hours</CardTitle>
           </CardHeader>
           <CardContent className="space-y-2">
             <Skeleton className="h-8 w-[12.5rem]" />
@@ -16,7 +30,9 @@ export function DashboardSkeleton() {
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <Skeleton className="h-4 w-[8rem]" />
+            <CardTitle className="text-sm font-medium">
+              Most used language
+            </CardTitle>
           </CardHeader>
           <CardContent className="space-y-2">
             <Skeleton className="h-8 w-[12.5rem]" />

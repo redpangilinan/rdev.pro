@@ -3,7 +3,7 @@ interface HeadingProps {
   subtext?: string
 }
 
-export default function HeadingText({ children, subtext }: HeadingProps) {
+export function HeadingText({ children, subtext }: HeadingProps) {
   return (
     <div>
       <h1 className="text-lg font-semibold">{children}</h1>

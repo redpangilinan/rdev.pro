@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Languages } from "@/types"
 
 interface CodeTimeProps {
   started: string
@@ -6,11 +7,7 @@ interface CodeTimeProps {
   languages: Languages[]
 }
 
-export default async function CodeTime({
-  started,
-  totalTime,
-  languages,
-}: CodeTimeProps) {
+export function CodeTime({ started, totalTime, languages }: CodeTimeProps) {
   return (
     <div className="grid w-full grid-cols-1 gap-2 md:grid-cols-2">
       <Card>
@@ -18,7 +15,7 @@ export default async function CodeTime({
           <CardTitle className="text-sm font-medium">Coding hours</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">{totalTime}</div>
+          <div className="text-lg font-bold">{totalTime}</div>
           <p className="text-xs text-muted-foreground">{started}</p>
         </CardContent>
       </Card>
@@ -29,7 +26,7 @@ export default async function CodeTime({
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">{languages[0].name}</div>
+          <div className="text-lg font-bold">{languages[0].name}</div>
           <p className="text-xs text-muted-foreground">{languages[0].text}</p>
         </CardContent>
       </Card>

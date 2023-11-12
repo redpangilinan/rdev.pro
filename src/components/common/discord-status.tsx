@@ -18,7 +18,7 @@ export function DiscordStatus(data: DiscordApiResponse) {
   const statusInfo = status(data.data.discord_status)
 
   return (
-    <div className="flex gap-4">
+    <div className="flex flex-col gap-4 sm:flex-row">
       <div className="flex gap-2">
         <div className="flex items-center justify-center">
           <Avatar>

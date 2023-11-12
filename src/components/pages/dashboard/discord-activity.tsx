@@ -31,7 +31,10 @@ export async function DiscordActivity() {
             </Alert>
           ) : (
             data.data.activities.map((activity: Activity, index: number) => (
-              <Alert key={index} className="flex items-center gap-3 bg-muted">
+              <Alert
+                key={index}
+                className="flex flex-col items-center gap-3 bg-muted text-center sm:flex-row sm:text-left"
+              >
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger>
@@ -68,8 +71,9 @@ export async function DiscordActivity() {
                       )}
                     </TooltipTrigger>
                     <TooltipContent>
-                      {activity.assets &&
-                        (activity.assets.large_text || activity.name)}
+                      {activity.assets
+                        ? activity.assets.large_text || activity.name
+                        : activity.name}
                     </TooltipContent>
                   </Tooltip>
                 </TooltipProvider>

@@ -1,6 +1,6 @@
 # rdev.pro
 
-This is my personal website built with [Next.js](https://nextjs.org/).
+My personal website built with [Next.js](https://nextjs.org/).
 
 ## Local Installation
 
@@ -20,12 +20,7 @@ npm run dev
 pnpm run dev
 ```
 
-Finally, create a local env file:
-
-```bash
-NEXT_PUBLIC_APP_URL=http://localhost:3000
-WAKATIME_API_KEY=waka_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-```
+Finally, create a local env file. Refer to [.env.example](./.env.example).
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to view the app.
 

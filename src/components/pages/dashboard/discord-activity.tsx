@@ -84,7 +84,9 @@ export async function DiscordActivity() {
                   </AlertDescription>
                   <AlertDescription>{activity.state || null}</AlertDescription>
                   <AlertDescription>
-                    {discordTimestamp(activity.timestamps.start)}
+                    {activity.timestamps && activity.timestamps.start
+                      ? discordTimestamp(activity.timestamps.start)
+                      : null}
                   </AlertDescription>
                 </div>
               </Alert>

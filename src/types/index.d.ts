@@ -52,8 +52,9 @@ type Activity = {
   state?: string
   details?: string
   application_id: string
-  timestamps: {
-    start: number
+  timestamps?: {
+    start?: number
+    end?: number
   }
   assets?: {
     large_image?: string

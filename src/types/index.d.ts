@@ -51,7 +51,7 @@ type Activity = {
   name: string
   state?: string
   details?: string
-  application_id: string
+  application_id?: string
   timestamps?: {
     start?: number
     end?: number

@@ -48,9 +48,17 @@ export async function DiscordActivity() {
                           alt="Activity image"
                           className="rounded"
                         />
-                      ) : activity.assets ? (
+                      ) : activity.assets && activity.application_id ? (
                         <img
-                          src={`https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets.large_image}`}
+                          src={`https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets.large_image}.webp?size=512`}
+                          width={90}
+                          height={90}
+                          alt="Activity image"
+                          className="rounded"
+                        />
+                      ) : activity.application_id ? (
+                        <img
+                          src={`https://dcdn.dstn.to/app-icons/${activity.application_id}.webp?size=512`}
                           width={90}
                           height={90}
                           alt="Activity image"

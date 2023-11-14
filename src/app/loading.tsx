@@ -1,8 +1,8 @@
 import { siteConfig } from "@/../config/site"
 
-import { Projects } from "@/components/pages/home/projects"
 import { HeadingText } from "@/components/common/heading-text"
 import { SocialMediaIcons } from "@/components/common/social-media-icons"
+import { ProjectsSkeleton } from "@/components/loaders/projects-skeleton"
 
 export default function Home() {
   return (
@@ -26,7 +26,7 @@ export default function Home() {
         <HeadingText>Projects</HeadingText>
         <div className="flex flex-col items-end gap-4">
           <div className="grid w-full grid-cols-1 gap-3 md:grid-cols-2">
-            <Projects />
+            <ProjectsSkeleton />
           </div>
           <a
             target="_blank"

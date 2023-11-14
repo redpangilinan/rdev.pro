@@ -26,7 +26,7 @@ export function Languages({ languages }: LanguagesProps) {
   }
 
   return (
-    <Card className="flex-grow">
+    <Card className="w-full">
       <CardHeader>
         <CardTitle className="text-lg">Top Languages</CardTitle>
       </CardHeader>

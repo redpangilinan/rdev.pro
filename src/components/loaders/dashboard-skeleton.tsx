@@ -40,7 +40,7 @@ export function DashboardSkeleton() {
           </CardContent>
         </Card>
       </div>
-      <Card className="flex-grow">
+      <Card className="w-full">
         <CardHeader>
           <CardTitle className="text-lg">Top Languages</CardTitle>
         </CardHeader>

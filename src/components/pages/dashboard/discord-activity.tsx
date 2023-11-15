@@ -24,38 +24,23 @@ import useWebSocket, { ReadyState } from "react-use-websocket"
 interface MessageData {
   op: number
   t: string
-  d: Record<string, any>
+  d: any
 }
 
 export function DiscordActivity() {
   const [data, setData] = useState<DiscordApiResponse | null>(null)
   const userId = env.NEXT_PUBLIC_DISCORD_ID
+  const defaultInterval = 30000
   const socketUrl = "wss://api.lanyard.rest/socket"
-  const heartbeat = {
-    timeout: 60000,
-    interval: 5000,
-  }
 
   const initMessage = () => {
     sendMessage(JSON.stringify({ op: 2, d: { subscribe_to_ids: [userId] } }))
   }
 
-  const { sendMessage, readyState } = useWebSocket(socketUrl, {
-    heartbeat: {
-      timeout: heartbeat.timeout,
-      interval: heartbeat.interval,
-    },
+  const { sendMessage, lastMessage, readyState } = useWebSocket(socketUrl, {
     onOpen: () => {
       initMessage()
-    },
-    onMessage: (event) => {
-      const message = JSON.parse(event.data)
-
-      if (message.op === 0) {
-        handleEvent(message)
-      } else if (message.op === 1) {
-        handleHello()
-      }
+      handleHello()
     },
     shouldReconnect: () => true,
   })
@@ -70,16 +55,25 @@ export function DiscordActivity() {
     const eventData = messageData.d
     switch (messageData.t) {
       case "INIT_STATE":
-      case "PRESENCE_UPDATE":
         setData({ data: eventData && eventData[userId] })
+        break
+      case "PRESENCE_UPDATE":
+        setData({ data: eventData })
         break
       default:
         break
     }
   }
 
+  useEffect(() => {
+    if (lastMessage) {
+      const messageData = JSON.parse(lastMessage.data)
+      handleEvent(messageData)
+    }
+  }, [lastMessage])
+
   const handleHello = () => {
-    const heartbeatInterval = 5000
+    const heartbeatInterval = defaultInterval
 
     const heartbeatIntervalId = setInterval(() => {
       sendMessage(JSON.stringify({ op: 3 }))

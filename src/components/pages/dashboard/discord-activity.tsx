@@ -20,7 +20,6 @@ import { DiscordApiResponse, DiscordApiContent } from "@/types"
 import { Activity } from "@/types"
 import useWebSocket, { ReadyState } from "react-use-websocket"
 
-// TODO: messageData.d type safety
 interface MessageData {
   op: number
   t: string

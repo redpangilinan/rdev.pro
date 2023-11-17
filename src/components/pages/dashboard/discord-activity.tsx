@@ -16,7 +16,7 @@ import { BsDiscord } from "react-icons/bs"
 
 import { env } from "@/lib/utils"
 import { discordTimestamp } from "@/lib/utils"
-import { DiscordApiResponse } from "@/types"
+import { DiscordApiResponse, DiscordApiContent } from "@/types"
 import { Activity } from "@/types"
 import useWebSocket, { ReadyState } from "react-use-websocket"
 
@@ -24,7 +24,7 @@ import useWebSocket, { ReadyState } from "react-use-websocket"
 interface MessageData {
   op: number
   t: string
-  d: any
+  d: DiscordApiContent
 }
 
 export function DiscordActivity() {

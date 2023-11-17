@@ -64,13 +64,19 @@ type Activity = {
   }
 }
 
-type DiscordApiResponse = {
-  data: {
-    spotify: {
-      album_art_url: string
-    }
-    discord_user: DiscordUser
-    activities: Activity[]
-    discord_status: string
+type DiscordApiContent = {
+  spotify: {
+    album_art_url: string
   }
+  discord_user: DiscordUser
+  activities: Activity[]
+  discord_status: string
+} & DiscordKeyString
+
+type DiscordKeyString = {
+  [key: string]: DiscordApiContent
+}
+
+type DiscordApiResponse = {
+  data: DiscordApiContent
 }

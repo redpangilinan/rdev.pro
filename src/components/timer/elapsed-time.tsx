@@ -1,11 +1,11 @@
 import * as React from "react"
-import { discordTimestamp } from "@/lib/utils"
+import { discordTimestamp } from "@/lib/time"
 
 interface TimestampProps {
   unixTimestamp: number
 }
 
-export function Timestamp({ unixTimestamp }: TimestampProps) {
+export function ElapsedTime({ unixTimestamp }: TimestampProps) {
   const [timeAgo, setTimeAgo] = React.useState(discordTimestamp(unixTimestamp))
 
   React.useEffect(() => {

@@ -12,11 +12,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { DiscordStatus } from "@/components/common/discord-status"
 import { Skeleton } from "@/components/ui/skeleton"
-import { Timestamp } from "@/components/common/timestamp"
+import { ElapsedTime } from "@/components/timer/elapsed-time"
+import { ProgressBar } from "@/components/timer/progress-bar"
 import { BsDiscord } from "react-icons/bs"
 
 import { env } from "@/lib/utils"
-import { discordTimestamp } from "@/lib/utils"
 import { DiscordApiResponse, DiscordApiContent } from "@/types"
 import { Activity } from "@/types"
 import useWebSocket, { ReadyState } from "react-use-websocket"
@@ -172,17 +172,29 @@ export function DiscordActivity() {
                             </Tooltip>
                           </TooltipProvider>
                           <div>
-                            <AlertTitle>{activity.name}</AlertTitle>
-                            <AlertDescription>
+                            <AlertTitle className="line-clamp-1">
+                              {activity.name}
+                            </AlertTitle>
+                            <AlertDescription className="line-clamp-1">
                               {activity.details || null}
                             </AlertDescription>
-                            <AlertDescription>
+                            <AlertDescription className="line-clamp-1">
                               {activity.state || null}
                             </AlertDescription>
-                            <AlertDescription>
+                            <AlertDescription className="flex justify-center sm:block">
+                              {activity.timestamps &&
+                              activity.timestamps.start &&
+                              activity.timestamps.end ? (
+                                <ProgressBar
+                                  start={activity.timestamps.start}
+                                  end={activity.timestamps.end}
+                                />
+                              ) : null}
+                            </AlertDescription>
+                            <AlertDescription className="line-clamp-1">
                               {activity.timestamps &&
                               activity.timestamps.start ? (
-                                <Timestamp
+                                <ElapsedTime
                                   unixTimestamp={activity.timestamps.start}
                                 />
                               ) : null}

@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import * as React from "react"
 
 import {
   Tooltip,
@@ -12,6 +12,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { DiscordStatus } from "@/components/common/discord-status"
 import { Skeleton } from "@/components/ui/skeleton"
+import { Timestamp } from "@/components/common/timestamp"
 import { BsDiscord } from "react-icons/bs"
 
 import { env } from "@/lib/utils"
@@ -27,7 +28,7 @@ interface MessageData {
 }
 
 export function DiscordActivity() {
-  const [data, setData] = useState<DiscordApiResponse | null>(null)
+  const [data, setData] = React.useState<DiscordApiResponse | null>(null)
   const userId = env.NEXT_PUBLIC_DISCORD_ID
   const defaultInterval = 30000
   const socketUrl = "wss://api.lanyard.rest/socket"
@@ -44,7 +45,7 @@ export function DiscordActivity() {
     shouldReconnect: () => true,
   })
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (readyState === ReadyState.OPEN) {
       initMessage()
     }
@@ -64,7 +65,7 @@ export function DiscordActivity() {
     }
   }
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (lastMessage) {
       const messageData = JSON.parse(lastMessage.data)
       handleEvent(messageData)
@@ -179,9 +180,12 @@ export function DiscordActivity() {
                               {activity.state || null}
                             </AlertDescription>
                             <AlertDescription>
-                              {activity.timestamps && activity.timestamps.start
-                                ? discordTimestamp(activity.timestamps.start)
-                                : null}
+                              {activity.timestamps &&
+                              activity.timestamps.start ? (
+                                <Timestamp
+                                  unixTimestamp={activity.timestamps.start}
+                                />
+                              ) : null}
                             </AlertDescription>
                           </div>
                         </Alert>

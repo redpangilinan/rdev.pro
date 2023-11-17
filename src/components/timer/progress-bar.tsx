@@ -1,3 +1,5 @@
+"use client"
+
 import * as React from "react"
 import { Progress } from "@/components/ui/progress"
 import { calculateProgress } from "@/lib/time"

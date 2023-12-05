@@ -2,23 +2,14 @@
 
 import * as React from "react"
 
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { Alert, AlertDescription } from "@/components/ui/alert"
 import { DiscordStatus } from "@/components/common/discord-status"
 import { Skeleton } from "@/components/ui/skeleton"
-import { ElapsedTime } from "@/components/timer/elapsed-time"
-import { ProgressBar } from "@/components/timer/progress-bar"
-import { BsDiscord } from "react-icons/bs"
+import { DiscordActivityCard } from "./discord-activity-card"
 
 import { env } from "@/lib/utils"
-import { DiscordApiResponse, DiscordApiContent } from "@/types"
-import { Activity } from "@/types"
+import { DiscordApiResponse, DiscordApiContent, Activity } from "@/types"
 import useWebSocket, { ReadyState } from "react-use-websocket"
 
 interface MessageData {
@@ -100,8 +91,8 @@ export function DiscordActivity() {
           <>
             {data.data ? (
               <>
+                {/* Display no activities */}
                 <DiscordStatus data={data.data} />
-
                 <div className="flex flex-grow flex-col gap-2">
                   {!data ||
                   !data.data ||
@@ -114,106 +105,46 @@ export function DiscordActivity() {
                     </Alert>
                   ) : (
                     <>
-                      {data?.data?.activities?.map(
-                        (activity: Activity) =>
-                          activity.name === "Custom Status" && (
-                            <p className="text-sm text-muted-foreground">
-                              {activity.state}
-                            </p>
-                          )
-                      )}
-                      {data?.data?.activities?.map(
-                        (activity: Activity, index: number) =>
-                          activity.name !== "Custom Status" && (
-                            <Alert
-                              key={index}
-                              className="flex flex-col items-center gap-3 bg-muted text-center sm:flex-row sm:text-left"
-                            >
-                              <TooltipProvider>
-                                <Tooltip>
-                                  <TooltipTrigger>
-                                    {activity.assets &&
-                                    activity.assets.large_image &&
-                                    activity.assets.large_image.startsWith(
-                                      "spotify:"
-                                    ) ? (
-                                      <img
-                                        src={data.data.spotify.album_art_url}
-                                        width={90}
-                                        height={90}
-                                        alt="Activity image"
-                                        className="rounded"
-                                      />
-                                    ) : activity.assets &&
-                                      activity.application_id ? (
-                                      <img
-                                        src={`https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets.large_image}.webp?size=512`}
-                                        width={90}
-                                        height={90}
-                                        alt="Activity image"
-                                        className="rounded"
-                                      />
-                                    ) : activity.application_id ? (
-                                      <img
-                                        src={`https://dcdn.dstn.to/app-icons/${activity.application_id}.webp?size=512`}
-                                        width={90}
-                                        height={90}
-                                        alt="Activity image"
-                                        className="rounded"
-                                      />
-                                    ) : (
-                                      <div
-                                        className="flex items-center justify-center"
-                                        style={{
-                                          width: 90,
-                                          height: 90,
-                                          backgroundColor: "gray",
-                                          borderRadius: "0.25rem",
-                                        }}
-                                      >
-                                        <BsDiscord className="h-12 w-12" />
-                                      </div>
-                                    )}
-                                  </TooltipTrigger>
-                                  <TooltipContent>
-                                    {activity.assets
-                                      ? activity.assets.large_text ||
-                                        activity.name
-                                      : activity.name}
-                                  </TooltipContent>
-                                </Tooltip>
-                              </TooltipProvider>
-                              <div>
-                                <AlertTitle className="line-clamp-1">
-                                  {activity.name}
-                                </AlertTitle>
-                                <AlertDescription className="line-clamp-1">
-                                  {activity.details || null}
-                                </AlertDescription>
-                                <AlertDescription className="line-clamp-1">
-                                  {activity.state || null}
-                                </AlertDescription>
-                                <AlertDescription className="flex justify-center sm:block">
-                                  {activity.timestamps &&
-                                  activity.timestamps.start &&
-                                  activity.timestamps.end ? (
-                                    <ProgressBar
-                                      start={activity.timestamps.start}
-                                      end={activity.timestamps.end}
-                                    />
-                                  ) : null}
-                                </AlertDescription>
-                                <AlertDescription className="line-clamp-1">
-                                  {activity.timestamps &&
-                                  activity.timestamps.start ? (
-                                    <ElapsedTime
-                                      unixTimestamp={activity.timestamps.start}
-                                    />
-                                  ) : null}
-                                </AlertDescription>
-                              </div>
-                            </Alert>
-                          )
+                      {/* Render custom status with no other activities */}
+                      {data.data.activities.length === 1 &&
+                      data.data.activities[0].name === "Custom Status" ? (
+                        <>
+                          {data?.data?.activities?.map(
+                            (activity: Activity) =>
+                              activity.name === "Custom Status" && (
+                                <p className="text-sm text-muted-foreground">
+                                  {activity.state}
+                                </p>
+                              )
+                          )}
+                          <Alert className="bg-muted">
+                            <AlertDescription>
+                              No activities currently.
+                            </AlertDescription>
+                          </Alert>
+                        </>
+                      ) : (
+                        <>
+                          {/* Render custom status including other activities */}
+                          {data?.data?.activities?.map(
+                            (activity: Activity) =>
+                              activity.name === "Custom Status" && (
+                                <p className="text-sm text-muted-foreground">
+                                  {activity.state}
+                                </p>
+                              )
+                          )}
+                          {data?.data?.activities?.map(
+                            (activity: Activity, index: number) =>
+                              activity.name !== "Custom Status" && (
+                                <DiscordActivityCard
+                                  key={index}
+                                  activity={activity}
+                                  data={data}
+                                />
+                              )
+                          )}
+                        </>
                       )}
                     </>
                   )}

@@ -1,4 +1,4 @@
-import { siteConfig } from "@/../config/site"
+import { siteConfig } from "@/config/site"
 
 import { Projects } from "@/components/pages/home/projects"
 import { HeadingText } from "@/components/common/heading-text"

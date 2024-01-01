@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { ModeToggle } from "../mode-toggle"
-import { siteConfig } from "@/../config/site"
+import { siteConfig } from "@/config/site"
 
 export default function Navbar() {
   const [navbar, setNavbar] = useState(false)

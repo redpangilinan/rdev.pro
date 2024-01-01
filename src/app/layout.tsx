@@ -1,5 +1,5 @@
-import "./globals.css"
-import { siteConfig } from "@/../config/site"
+import "@/styles/globals.css"
+import { siteConfig } from "@/config/site"
 import { Inter } from "next/font/google"
 import Navbar from "../components/layout/navbar"
 import Footer from "../components/layout/footer"

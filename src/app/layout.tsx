@@ -1,15 +1,17 @@
 import "@/styles/globals.css"
 
+import { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 
 import { siteConfig } from "@/config/site"
+import { cn } from "@/lib/utils"
 import Footer from "@/components/layout/footer"
 import Navbar from "@/components/layout/navbar"
 import { ThemeProvider } from "@/components/theme-provider"
 
 const inter = Inter({ subsets: ["latin"] })
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
     template: `%s | ${siteConfig.name}`,
@@ -59,7 +61,7 @@ export const metadata = {
   },
 }
 
-export const viewport = {
+export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
@@ -72,12 +74,15 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} flex justify-center bg-background text-zinc-800 dark:text-zinc-200`}
+        className={cn(
+          "bg-background text-zinc-800 antialiased dark:text-zinc-200",
+          inter.className
+        )}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="container flex min-h-screen w-[45rem] flex-col py-4 md:py-8">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <div className="container flex min-h-screen flex-col py-4 md:w-[45rem] md:py-8">
             <Navbar />
             {children}
             <Footer />

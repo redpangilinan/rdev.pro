@@ -21,7 +21,7 @@ export function DiscordActivityCard({
   data,
 }: DiscordActivityCardProps) {
   return (
-    <Alert className="flex flex-col items-center gap-3 bg-muted text-center sm:flex-row sm:text-left">
+    <Alert className="flex flex-col items-center gap-3 border-none bg-muted text-center sm:flex-row sm:text-left">
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger>

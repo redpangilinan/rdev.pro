@@ -41,7 +41,7 @@ export function Languages({ languages }: LanguagesProps) {
               innerRadius={50}
               outerRadius={100}
               paddingAngle={3}
-              stroke="black"
+              strokeWidth={0}
               dataKey="hours"
             >
               {data.map((entry, index) => (
@@ -62,12 +62,9 @@ export function Languages({ languages }: LanguagesProps) {
         <div className="flex items-center justify-center">
           <div className="p-4">
             {data.map((entry, index) => (
-              <div
-                key={`label-${index}`}
-                className="mb-2 flex items-center text-sm"
-              >
+              <div key={index} className="mb-2 flex items-center text-sm">
                 <span
-                  className="mr-2 inline-block h-4 w-4 shadow-sm"
+                  className="mr-2 inline-block h-4 w-4"
                   style={{
                     backgroundColor: colorMapping[entry.name] || "#1f9aef",
                   }}

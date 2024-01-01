@@ -1,5 +1,6 @@
-import { env } from "@/env.mjs"
 import wretch from "wretch"
+
+import { env } from "@/env.mjs"
 
 const apiUrl = env.GH_API_URL
 

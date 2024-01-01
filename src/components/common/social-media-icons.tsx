@@ -1,4 +1,5 @@
-import { FaGithub, FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa"
+import { FaFacebook, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa"
+
 import { siteConfig } from "@/config/site"
 
 export function SocialMediaIcons() {

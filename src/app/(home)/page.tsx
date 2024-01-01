@@ -1,8 +1,7 @@
 import { siteConfig } from "@/config/site"
-
-import { Projects } from "@/components/pages/home/projects"
 import { HeadingText } from "@/components/common/heading-text"
 import { SocialMediaIcons } from "@/components/common/social-media-icons"
+import { Projects } from "@/components/pages/home/projects"
 
 export default function Home() {
   return (

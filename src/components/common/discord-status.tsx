@@ -1,7 +1,7 @@
 import { DiscordApiResponse, Status } from "@/types"
+import { BsDiscord } from "react-icons/bs"
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { BsDiscord } from "react-icons/bs"
 
 export function DiscordStatus(data: DiscordApiResponse) {
   const status = (status: Status) => {

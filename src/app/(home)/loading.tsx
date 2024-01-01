@@ -1,5 +1,4 @@
 import { siteConfig } from "@/config/site"
-
 import { HeadingText } from "@/components/common/heading-text"
 import { SocialMediaIcons } from "@/components/common/social-media-icons"
 import { ProjectsSkeleton } from "@/components/loaders/projects-skeleton"

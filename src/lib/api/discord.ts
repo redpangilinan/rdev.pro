@@ -1,5 +1,6 @@
-import { env } from "../utils"
 import wretch from "wretch"
+
+import { env } from "../utils"
 
 // Instantiate and configure wretch
 const api = wretch("https://api.lanyard.rest", { cache: "no-store" })

@@ -1,5 +1,5 @@
-import { DashboardSkeleton } from "@/components/loaders/dashboard-skeleton"
 import { HeadingText } from "@/components/common/heading-text"
+import { DashboardSkeleton } from "@/components/loaders/dashboard-skeleton"
 
 export const metadata = {
   title: "Dashboard",

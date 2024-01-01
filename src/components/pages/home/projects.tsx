@@ -1,10 +1,8 @@
-import { Star } from "lucide-react"
-import { ExternalLink } from "lucide-react"
+import { Repo } from "@/types"
+import { ExternalLink, Star } from "lucide-react"
 
 import { getRepo } from "@/lib/api/github"
 import { getTextColor } from "@/lib/get-text-color"
-import { Repo } from "@/types"
-
 import { Badge } from "@/components/ui/badge"
 import {
   Card,

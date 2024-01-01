@@ -1,14 +1,15 @@
+import { Activity, DiscordApiResponse } from "@/types"
+import { BsDiscord } from "react-icons/bs"
+
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { ElapsedTime } from "@/components/timer/elapsed-time"
 import { ProgressBar } from "@/components/timer/progress-bar"
-import { BsDiscord } from "react-icons/bs"
-import { DiscordApiResponse, Activity } from "@/types"
 
 interface DiscordActivityCardProps {
   activity: Activity

@@ -1,8 +1,10 @@
 import "@/styles/globals.css"
-import { siteConfig } from "@/config/site"
+
 import { Inter } from "next/font/google"
-import Navbar from "../components/layout/navbar"
-import Footer from "../components/layout/footer"
+
+import { siteConfig } from "@/config/site"
+import Footer from "@/components/layout/footer"
+import Navbar from "@/components/layout/navbar"
 import { ThemeProvider } from "@/components/theme-provider"
 
 const inter = Inter({ subsets: ["latin"] })

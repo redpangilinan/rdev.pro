@@ -1,9 +1,11 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
-import { ModeToggle } from "../mode-toggle"
+
 import { siteConfig } from "@/config/site"
+
+import { ModeToggle } from "../mode-toggle"
 
 export default function Navbar() {
   const [navbar, setNavbar] = useState(false)

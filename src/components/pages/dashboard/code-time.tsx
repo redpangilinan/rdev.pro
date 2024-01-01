@@ -1,5 +1,6 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Languages } from "@/types"
+
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 interface CodeTimeProps {
   started: string

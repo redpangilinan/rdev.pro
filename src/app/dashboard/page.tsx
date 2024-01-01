@@ -27,7 +27,7 @@ export default async function Dashboard() {
   const languages: LanguagesType[] = data.data.languages
 
   return (
-    <main className="flex flex-col items-center py-8">
+    <main className="items-center py-8">
       <div className="space-y-4">
         <HeadingText subtext="Statistics about my activities">
           Dashboard

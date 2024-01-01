@@ -83,7 +83,7 @@ export function DiscordActivity() {
           <div className="flex flex-col gap-2">
             <div className="flex gap-2">
               <Skeleton className="h-10 w-10 rounded-full" />
-              <Skeleton className="h-10 w-[14rem]" />
+              <Skeleton className="h-10 w-28 md:w-[14rem]" />
             </div>
             <Skeleton className="h-8 w-full" />
           </div>
@@ -153,7 +153,7 @@ export function DiscordActivity() {
             ) : (
               <div className="flex gap-2">
                 <Skeleton className="h-10 w-10 rounded-full" />
-                <Skeleton className="h-10 w-[14rem]" />
+                <Skeleton className="h-10 w-28 md:w-[14rem]" />
               </div>
             )}
           </>

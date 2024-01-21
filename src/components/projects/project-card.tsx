@@ -1,15 +1,8 @@
+import Link from "next/link"
 import { Repo } from "@/types"
-import { ExternalLink, Star } from "lucide-react"
+import { Star } from "lucide-react"
 
-import { getTextColor } from "@/lib/get-text-color"
-import { Badge } from "@/components/ui/badge"
-import {
-  Card,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+import { CardDescription, CardTitle } from "@/components/ui/card"
 
 interface ProjectCardProps {
   project: Repo
@@ -17,46 +10,23 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <Card className="flex flex-col justify-between">
-      <CardHeader>
-        <div className="flex justify-between">
-          <a
-            target="_blank"
-            href={project.link}
-            rel="noopener noreferrer"
-            aria-label={project.repo}
-          >
-            <CardTitle className="text-base hover:underline">
-              {project.repo}
-            </CardTitle>
-          </a>
-          <a
-            target="_blank"
-            href={project.website || project.link}
-            rel="noopener noreferrer"
-            aria-label="Visit the project's live url/repo"
-          >
-            <ExternalLink className="h-4 w-4 text-muted-foreground" />
-          </a>
-        </div>
+    <Link
+      target="_blank"
+      href={project.link}
+      rel="noopener noreferrer"
+      aria-label={project.repo}
+      className="flex flex-col justify-between gap-2 rounded py-4 duration-100 hover:bg-muted hover:px-4 md:flex-row"
+    >
+      <div className="flex flex-col gap-1">
+        <CardTitle className="text-base">{project.repo}</CardTitle>
         <CardDescription className="line-clamp-2 text-sm font-light">
           {project.description}
         </CardDescription>
-      </CardHeader>
-      <CardFooter className="flex justify-between">
-        <Badge
-          style={{
-            backgroundColor: `${project.languageColor}`,
-            color: `${getTextColor(project.languageColor)}`,
-          }}
-        >
-          {project.language}
-        </Badge>
-        <CardDescription className="flex items-center gap-1">
-          <Star className="h-4 w-4" />
-          {project.stars}
-        </CardDescription>
-      </CardFooter>
-    </Card>
+      </div>
+      <CardDescription className="flex items-center gap-1">
+        <Star className="h-4 w-4" />
+        {project.stars}
+      </CardDescription>
+    </Link>
   )
 }

@@ -29,7 +29,7 @@ export default async function Home() {
       <section className="space-y-4 py-4">
         <HeadingText>Projects</HeadingText>
         <div className="flex flex-col items-end gap-4">
-          <div className="grid w-full grid-cols-1 gap-3 md:grid-cols-2">
+          <div className="grid w-full grid-cols-1">
             {data.map((project, index) => (
               <ProjectCard key={index} project={project} />
             ))}

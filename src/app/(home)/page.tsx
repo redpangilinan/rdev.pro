@@ -1,9 +1,14 @@
+import { Repo } from "@/types"
+
 import { siteConfig } from "@/config/site"
+import { getRepo } from "@/lib/api/github"
 import { HeadingText } from "@/components/common/heading-text"
 import { SocialMediaIcons } from "@/components/common/social-media-icons"
-import { Projects } from "@/components/pages/home/projects"
+import { ProjectCard } from "@/components/projects/project-card"
 
-export default function Home() {
+export default async function Home() {
+  const data = (await getRepo()) as Repo[]
+
   return (
     <main className="py-4">
       <section className="space-y-4 py-4">
@@ -25,7 +30,9 @@ export default function Home() {
         <HeadingText>Projects</HeadingText>
         <div className="flex flex-col items-end gap-4">
           <div className="grid w-full grid-cols-1 gap-3 md:grid-cols-2">
-            <Projects />
+            {data.map((project, index) => (
+              <ProjectCard key={index} project={project} />
+            ))}
           </div>
           <a
             target="_blank"

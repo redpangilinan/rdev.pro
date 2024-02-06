@@ -3,6 +3,7 @@
 import { Languages as LanguagesType } from "@/types"
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts"
 
+import { languageColors } from "@/lib/language-colors"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 interface LanguagesProps {
@@ -11,20 +12,6 @@ interface LanguagesProps {
 
 export function Languages({ languages }: LanguagesProps) {
   const data = languages.slice(0, 10)
-
-  const colorMapping: Record<string, string> = {
-    TypeScript: "#3178c6",
-    JavaScript: "#f1e05a",
-    PHP: "#4f5d95",
-    HTML: "#e34c26",
-    C: "#555555",
-    ["C++"]: "#f34b7d",
-    ["C#"]: "#178600",
-    SQL: "#e38c00",
-    Markdown: "#083fa1",
-    Java: "#b07219",
-    Python: "#3572A5",
-  }
 
   return (
     <Card className="w-full">
@@ -47,7 +34,7 @@ export function Languages({ languages }: LanguagesProps) {
               {data.map((entry, index) => (
                 <Cell
                   key={`cell-${index}`}
-                  fill={colorMapping[entry.name] || "#1f9aef"}
+                  fill={languageColors[entry.name] || "#1f9aef"}
                 />
               ))}
             </Pie>
@@ -66,7 +53,7 @@ export function Languages({ languages }: LanguagesProps) {
                 <span
                   className="mr-2 inline-block h-4 w-4"
                   style={{
-                    backgroundColor: colorMapping[entry.name] || "#1f9aef",
+                    backgroundColor: languageColors[entry.name] || "#1f9aef",
                   }}
                 ></span>
                 {entry.name} - {entry.text}

@@ -4,12 +4,13 @@ export function ProjectsSkeleton() {
   return (
     <>
       {Array.from({ length: 6 }).map(() => (
-        <div className="flex flex-col justify-between gap-2 py-4 md:flex-row">
+        <div className="flex flex-col justify-between gap-2 p-4">
           <div className="flex w-full flex-col gap-2">
-            <Skeleton className="h-5 w-[10rem] md:w-[14rem]" />
-            <Skeleton className="h-5 w-full" />
+            <Skeleton className="h-4 w-[10rem]" />
+            <Skeleton className="h-4 w-full" />
+            <Skeleton className="h-4 w-[15rem]" />
           </div>
-          <Skeleton className="h-5 w-[3rem] md:w-0" />
+          <Skeleton className="h-4 w-[2.5rem]" />
         </div>
       ))}
     </>

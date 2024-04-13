@@ -23,7 +23,7 @@ export default function Navbar() {
   }, [navbar])
 
   return (
-    <nav className="select-none bg-background">
+    <nav className="select-none bg-background px-4">
       <div className="flex justify-between">
         <Link href="/" onClick={handleClick} className="flex items-center">
           <h1 className="text-lg font-bold">/{siteConfig.name}</h1>

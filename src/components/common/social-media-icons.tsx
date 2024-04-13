@@ -4,13 +4,13 @@ import { siteConfig } from "@/config/site"
 
 export function SocialMediaIcons() {
   return (
-    <div className="flex gap-2">
+    <div className="flex">
       <a
         target="_blank"
         href={siteConfig.links.github}
         rel="noopener noreferrer"
         aria-label="Github"
-        className="rounded p-2 text-xl hover:bg-accent hover:text-accent-foreground"
+        className="rounded px-4 py-3 text-xl hover:bg-accent hover:text-accent-foreground"
       >
         <FaGithub />
       </a>
@@ -19,7 +19,7 @@ export function SocialMediaIcons() {
         href={siteConfig.links.facebook}
         rel="noopener noreferrer"
         aria-label="Facebook"
-        className="rounded p-2 text-xl hover:bg-accent hover:text-accent-foreground"
+        className="rounded px-4 py-3 text-xl hover:bg-accent hover:text-accent-foreground"
       >
         <FaFacebook />
       </a>
@@ -28,7 +28,7 @@ export function SocialMediaIcons() {
         href={siteConfig.links.twitter}
         rel="noopener noreferrer"
         aria-label="Twitter"
-        className="rounded p-2 text-xl hover:bg-accent hover:text-accent-foreground"
+        className="rounded px-4 py-3 text-xl hover:bg-accent hover:text-accent-foreground"
       >
         <FaTwitter />
       </a>
@@ -37,7 +37,7 @@ export function SocialMediaIcons() {
         href={siteConfig.links.linkedin}
         rel="noopener noreferrer"
         aria-label="Linkedin"
-        className="rounded p-2 text-xl hover:bg-accent hover:text-accent-foreground"
+        className="rounded px-4 py-3 text-xl hover:bg-accent hover:text-accent-foreground"
       >
         <FaLinkedin />
       </a>

@@ -6,7 +6,7 @@ import { ProjectsSkeleton } from "@/components/loaders/projects-skeleton"
 export default function Home() {
   return (
     <main className="py-4">
-      <section className="space-y-4 py-4">
+      <section className="space-y-4 p-4">
         <p className="font-light text-muted-foreground">Welcome to /rdev!</p>
         <p className="font-light">
           I'm a motivated full-stack developer, continuously exploring and
@@ -22,15 +22,17 @@ export default function Home() {
         <SocialMediaIcons />
       </section>
       <section className="space-y-4 py-4">
-        <HeadingText>Projects</HeadingText>
+        <div className="px-4">
+          <HeadingText>Projects</HeadingText>
+        </div>
         <div className="flex flex-col items-end gap-4">
-          <div className="grid w-full grid-cols-1">
+          <div className="grid w-full grid-cols-1 md:grid-cols-2">
             <ProjectsSkeleton />
           </div>
           <a
             target="_blank"
             href={`${siteConfig.links.github}?tab=repositories`}
-            className="text-sm underline"
+            className="px-4 text-sm underline"
           >
             See More...
           </a>

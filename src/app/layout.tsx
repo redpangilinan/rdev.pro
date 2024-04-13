@@ -82,7 +82,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <div className="container flex min-h-screen flex-col py-4 md:w-[45rem] md:py-8">
+          <div className="flex min-h-screen flex-col px-4 py-4 md:container md:w-[45rem] md:px-0 md:py-8">
             <Navbar />
             {children}
             <Footer />

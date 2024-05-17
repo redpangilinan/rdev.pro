@@ -3,8 +3,8 @@ import { Languages as LanguagesType } from "@/types"
 import { getCodingStats } from "@/lib/api/wakatime"
 import { HeadingText } from "@/components/common/heading-text"
 import { CodeTime } from "@/components/dashboard/code-time"
-import { DiscordActivity } from "@/components/dashboard/discord-activity"
 import { Languages } from "@/components/dashboard/languages"
+import { SpotifyCard } from "@/components/dashboard/spotify-card"
 
 export const metadata = {
   title: "Dashboard",
@@ -33,7 +33,7 @@ export default async function Dashboard() {
           Dashboard
         </HeadingText>
         <div className="flex flex-wrap gap-2">
-          <DiscordActivity />
+          <SpotifyCard />
           <CodeTime
             started={started}
             totalTime={totalTime}

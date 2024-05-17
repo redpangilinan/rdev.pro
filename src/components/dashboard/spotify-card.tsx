@@ -21,19 +21,19 @@ export function SpotifyCard() {
   )
   const trackId = data?.data?.spotify?.track_id
 
-  // if (isLoading) {
-  //   return (
-  //     <div className="w-full">
-  //       <div className="flex flex-col gap-2">
-  //         <div className="flex gap-2">
-  //           <Skeleton className="h-10 w-10 rounded-full" />
-  //           <Skeleton className="h-10 w-full" />
-  //         </div>
-  //         <Skeleton className="h-8 w-full" />
-  //       </div>
-  //     </div>
-  //   )
-  // }
+  if (isLoading) {
+    return (
+      <div className="w-full">
+        <div className="flex flex-col gap-2">
+          <div className="flex gap-2">
+            <Skeleton className="h-10 w-10 rounded-full" />
+            <Skeleton className="h-10 w-full" />
+          </div>
+          <Skeleton className="h-8 w-full" />
+        </div>
+      </div>
+    )
+  }
 
   if (!activity) {
     return (

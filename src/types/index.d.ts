@@ -66,6 +66,7 @@ type Activity = {
 
 type DiscordApiContent = {
   spotify: {
+    track_id: string
     album_art_url: string
   }
   discord_user: DiscordUser

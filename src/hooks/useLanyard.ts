@@ -10,8 +10,9 @@ interface MessageData {
   d: DiscordApiContent
 }
 
-const useLanyard = () => {
+export const useLanyard = () => {
   const [data, setData] = React.useState<DiscordApiResponse | null>(null)
+  const [isLoading, setIsLoading] = React.useState<boolean>(true)
   const userId = env.NEXT_PUBLIC_DISCORD_ID
   const socketUrl = "wss://api.lanyard.rest/socket"
 
@@ -37,9 +38,11 @@ const useLanyard = () => {
     switch (messageData.t) {
       case "INIT_STATE":
         setData({ data: eventData && eventData[userId] })
+        setIsLoading(false)
         break
       case "PRESENCE_UPDATE":
         setData({ data: eventData })
+        setIsLoading(false)
         break
       default:
         break
@@ -53,7 +56,5 @@ const useLanyard = () => {
     }
   }, [lastMessage])
 
-  return { data, readyState }
+  return { data, isLoading, readyState }
 }
-
-export default useLanyard

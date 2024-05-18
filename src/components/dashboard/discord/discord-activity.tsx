@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { useLanyard } from "@/hooks/useLanyard"
+import { useLanyard } from "@/hooks/use-lanyard"
 import { Activity } from "@/types"
 
 import { Alert, AlertDescription } from "@/components/ui/alert"

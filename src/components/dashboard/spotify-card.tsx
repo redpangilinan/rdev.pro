@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { useLanyard } from "@/hooks/useLanyard"
+import { useLanyard } from "@/hooks/use-lanyard"
 import { FaSpotify } from "react-icons/fa"
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"

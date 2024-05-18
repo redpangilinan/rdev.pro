@@ -14,5 +14,10 @@ const api = wretch(apiUrl, {
 
 // Fetch my pinned repository
 export const getRepo = async () => {
-  return await api.get("/?username=redpangilinan")
+  try {
+    return await api.get("/?username=redpangilinan")
+  } catch (error) {
+    console.error("Error fetching data:", error)
+    return { error: "Failed fetching data" }
+  }
 }

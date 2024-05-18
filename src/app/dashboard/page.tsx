@@ -5,6 +5,7 @@ import { HeadingText } from "@/components/common/heading-text"
 import { CodeTime } from "@/components/dashboard/code-time"
 import { Languages } from "@/components/dashboard/languages"
 import { SpotifyCard } from "@/components/dashboard/spotify-card"
+import { DashboardSkeleton } from "@/components/loaders/dashboard-skeleton"
 
 export const metadata = {
   title: "Dashboard",
@@ -17,10 +18,26 @@ interface ResponseData {
     human_readable_total_including_other_language: string
     languages: LanguagesType[]
   }
+  error?: string
 }
 
 export default async function Dashboard() {
   const data = (await getCodingStats()) as ResponseData
+
+  if (!data || data.error) {
+    return (
+      <main className="items-center px-4 py-8">
+        <div className="space-y-4">
+          <HeadingText subtext="Statistics about my activities">
+            Dashboard
+          </HeadingText>
+          <div className="flex flex-wrap gap-2">
+            <DashboardSkeleton />
+          </div>
+        </div>
+      </main>
+    )
+  }
 
   const started = data.data.human_readable_range
   const totalTime = data.data.human_readable_total_including_other_language

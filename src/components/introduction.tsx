@@ -13,7 +13,7 @@ export function Introduction() {
         <span className="font-semibold">Next.js</span>,{" "}
         <span className="font-semibold">React</span>, and{" "}
         <span className="font-semibold">TypeScript</span> for the frontend and{" "}
-        <span className="font-semibold">Django</span> and for the backend.
+        <span className="font-semibold">Django</span> for the backend.
       </p>
     </div>
   )

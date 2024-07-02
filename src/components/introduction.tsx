@@ -15,6 +15,11 @@ export function Introduction() {
         <span className="font-semibold">TypeScript</span> for the frontend and{" "}
         <span className="font-semibold">Django</span> for the backend.
       </p>
+      <p className="font-light">
+        I currently work as a{" "}
+        <span className="font-semibold">Software Engineer</span> at{" "}
+        <span className="font-semibold">Hiraya Technology Solutions, Inc.</span>
+      </p>
     </div>
   )
 }

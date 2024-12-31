@@ -18,7 +18,7 @@ export function Introduction() {
       <p className="font-light">
         I currently work as a{" "}
         <span className="font-semibold">Software Engineer</span> at{" "}
-        <span className="font-semibold">Hiraya Technology Solutions, Inc.</span>
+        <span className="font-semibold">LightWork</span>.
       </p>
     </div>
   )

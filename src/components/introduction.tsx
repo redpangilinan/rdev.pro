@@ -5,8 +5,8 @@ export function Introduction() {
     <div className="space-y-4 p-4">
       <p className="font-light text-muted-foreground">Welcome to /rdev!</p>
       <p className="font-light">
-        I'm a full-stack developer and I love open-source, I enjoy building apps
-        in the JavaScript ecosystem and I like learning new technologies.
+        I'm a software engineer and I love open-source, I enjoy building apps in
+        the JavaScript ecosystem and I like learning new technologies.
       </p>
       <p className="font-light">
         My favorite tech stack for building apps is{" "}

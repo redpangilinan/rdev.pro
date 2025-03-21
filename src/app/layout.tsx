@@ -5,7 +5,7 @@ import { Inter } from "next/font/google"
 import Script from "next/script"
 
 import { siteConfig } from "@/config/site"
-import { cn } from "@/lib/utils"
+import { cn, env } from "@/lib/utils"
 import Footer from "@/components/layout/footer"
 import Navbar from "@/components/layout/navbar"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -83,7 +83,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <div className="flex min-h-screen flex-col px-4 py-4 md:container md:w-[45rem] md:px-0 md:py-8">
+          <div className="flex min-h-screen flex-col px-4 py-4 md:container md:w-[640px] md:px-0 md:py-8">
             <Navbar />
             {children}
             <Footer />
@@ -91,7 +91,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         </ThemeProvider>
         <Script
           strategy="afterInteractive"
-          data-goatcounter="https://redpangilinan.goatcounter.com/count"
+          data-goatcounter={env.GOATCOUNTER_URL}
           src="//gc.zgo.at/count.js"
         />
       </body>

@@ -2,12 +2,10 @@ import wretch from "wretch"
 
 import { env } from "../utils"
 
-// Instantiate and configure wretch
 const api = wretch("https://wakatime.com", { cache: "no-store" })
   .errorType("json")
   .resolve((r) => r.json())
 
-// Fetch stats from wakatime
 export const getCodingStats = async () => {
   try {
     return await api

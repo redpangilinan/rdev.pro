@@ -11,7 +11,23 @@ interface LanguagesProps {
 }
 
 export function Languages({ languages }: LanguagesProps) {
-  const data = languages.slice(0, 10)
+  const hasLanguages = languages && languages.length > 0
+  const data = hasLanguages ? languages.slice(0, 10) : []
+
+  if (!hasLanguages) {
+    return (
+      <Card className="w-full">
+        <CardHeader>
+          <CardTitle className="text-lg">Top Languages</CardTitle>
+        </CardHeader>
+        <CardContent className="flex h-[250px] items-center justify-center">
+          <p className="text-sm text-muted-foreground">
+            No language data available
+          </p>
+        </CardContent>
+      </Card>
+    )
+  }
 
   return (
     <Card className="w-full">

@@ -12,25 +12,46 @@ export const metadata = {
 }
 
 interface ResponseData {
-  data: {
-    human_readable_range: string
-    human_readable_total_including_other_language: string
-    languages: LanguagesType[]
+  data?: {
+    human_readable_range?: string
+    human_readable_total_including_other_language?: string
+    languages?: LanguagesType[]
   }
   error?: string
 }
 
 export default async function Dashboard() {
-  const data = (await getCodingStats()) as ResponseData
+  let data: ResponseData | null = null
 
-  if (!data || data.error) {
+  try {
+    data = (await getCodingStats()) as ResponseData
+  } catch (error) {
+    console.error("Failed to fetch coding stats:", error)
+    data = { error: "Failed to fetch coding stats" }
+  }
+
+  const hasError = !data || data.error || !data.data
+  const missingRequiredData =
+    !hasError &&
+    (!data.data?.human_readable_range ||
+      !data.data?.human_readable_total_including_other_language ||
+      !Array.isArray(data.data?.languages) ||
+      data.data.languages.length === 0)
+
+  if (hasError || missingRequiredData) {
     return (
       <main className="items-center px-4 py-8">
         <div className="space-y-4">
           <HeadingText subtext="Statistics about my activities">
             Dashboard
           </HeadingText>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-col gap-4">
+            <div className="rounded-lg border bg-card p-4 text-card-foreground shadow-sm">
+              <p className="text-muted-foreground">
+                {data?.error ||
+                  "Unable to load dashboard data at this time. Please try again later."}
+              </p>
+            </div>
             <DashboardSkeleton />
           </div>
         </div>
@@ -38,9 +59,12 @@ export default async function Dashboard() {
     )
   }
 
-  const started = data.data.human_readable_range
-  const totalTime = data.data.human_readable_total_including_other_language
-  const languages: LanguagesType[] = data.data.languages
+  const started = data.data!.human_readable_range || "Unknown time range"
+  const totalTime =
+    data.data!.human_readable_total_including_other_language || "Unknown"
+  const languages: LanguagesType[] = data.data!.languages || []
+
+  const hasValidLanguages = languages.length > 0
 
   return (
     <main className="items-center px-4 py-8">
@@ -49,12 +73,25 @@ export default async function Dashboard() {
           Dashboard
         </HeadingText>
         <div className="flex flex-wrap gap-2">
-          <CodeTime
-            started={started}
-            totalTime={totalTime}
-            languages={languages}
-          />
-          <Languages languages={languages} />
+          {hasValidLanguages ? (
+            <>
+              <CodeTime
+                started={started}
+                totalTime={totalTime}
+                languages={languages}
+              />
+              <Languages languages={languages} />
+            </>
+          ) : (
+            <>
+              <div className="w-full rounded-lg border bg-card p-4 text-card-foreground shadow-sm">
+                <p className="text-muted-foreground">
+                  No language data available at this time.
+                </p>
+              </div>
+              <DashboardSkeleton />
+            </>
+          )}
         </div>
       </div>
     </main>

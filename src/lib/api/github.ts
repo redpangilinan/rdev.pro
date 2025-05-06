@@ -4,7 +4,6 @@ import { env } from "@/env.mjs"
 
 const apiUrl = env.GH_API_URL
 
-// Instantiate and configure wretch
 const api = wretch(apiUrl, {
   cache: "no-store",
   mode: "cors",
@@ -12,12 +11,18 @@ const api = wretch(apiUrl, {
   .errorType("json")
   .resolve((r) => r.json())
 
-// Fetch my pinned repository
 export const getRepo = async () => {
   try {
-    return await api.get("/?username=redpangilinan")
+    const response = await api.get("/?username=redpangilinan")
+
+    if (!response || !Array.isArray(response) || response.length === 0) {
+      console.error("Invalid response format:", response)
+      return { error: "Invalid response from GitHub API" }
+    }
+
+    return response
   } catch (error) {
-    console.error("Error fetching data:", error)
-    return { error: "Failed fetching data" }
+    console.error("Error fetching GitHub data:", error)
+    return { error: "Failed to fetch repository data" }
   }
 }

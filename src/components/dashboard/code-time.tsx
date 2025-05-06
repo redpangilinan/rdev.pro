@@ -9,6 +9,9 @@ interface CodeTimeProps {
 }
 
 export function CodeTime({ started, totalTime, languages }: CodeTimeProps) {
+  const hasLanguages = languages && languages.length > 0
+  const topLanguage = hasLanguages ? languages[0] : null
+
   return (
     <div className="grid w-full grid-cols-1 gap-2 md:grid-cols-2">
       <Card>
@@ -27,8 +30,18 @@ export function CodeTime({ started, totalTime, languages }: CodeTimeProps) {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="text-lg font-bold">{languages[0].name}</div>
-          <p className="text-xs text-muted-foreground">{languages[0].text}</p>
+          {topLanguage ? (
+            <>
+              <div className="text-lg font-bold">{topLanguage.name}</div>
+              <p className="text-xs text-muted-foreground">
+                {topLanguage.text}
+              </p>
+            </>
+          ) : (
+            <div className="text-sm text-muted-foreground">
+              No data available
+            </div>
+          )}
         </CardContent>
       </Card>
     </div>

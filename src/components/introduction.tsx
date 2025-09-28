@@ -14,11 +14,6 @@ export function Introduction() {
         <span className="font-semibold">React</span>, and{" "}
         <span className="font-semibold">TypeScript</span>.
       </p>
-      <p className="font-light">
-        I currently work as a{" "}
-        <span className="font-semibold">Product Engineer</span> at{" "}
-        <span className="font-semibold">LightWork</span>.
-      </p>
     </div>
   )
 }
